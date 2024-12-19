@@ -5,10 +5,25 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
-    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <Platforms>x64</Platforms>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Configurations>ML</Configurations>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='ML'">
+    <OutputPath>bin\$(Configuration)</OutputPath>
+    <DefineConstants>ML</DefineConstants>
+    <AssemblyName>ModSide.ModLoader</AssemblyName>
+  </PropertyGroup>
+
+  <!-- <PropertyGroup Condition="'$(Configuration)'=='BIE'">
+    <OutputPath>bin\$(Configuration)\ModSide.BepInEx</OutputPath>
+    <DefineConstants>BIE</DefineConstants>
+    <AssemblyName>ModSide.BepInEx</AssemblyName>
+  </PropertyGroup> -->
 
   <ItemGroup>
     <Reference Include="$(ProjectDir)Assemblies\Il2CppAssemblies\*.dll" />

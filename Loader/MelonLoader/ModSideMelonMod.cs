@@ -1,3 +1,4 @@
+#if ML
 using MelonLoader;
 using MelonLoader.Utils;
 using ModSide.Config;
@@ -51,3 +52,5 @@ public class ModSideMelonMod : MelonMod, IModSideLoader
         ModSideCore.Init(this);
     }
 }
+
+#endif

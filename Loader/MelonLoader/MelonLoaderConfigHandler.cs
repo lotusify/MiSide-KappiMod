@@ -1,3 +1,4 @@
+#if ML
 using MelonLoader;
 using ModSide.Config;
 
@@ -98,3 +99,5 @@ public class MelonLoaderConfigHandler : ConfigHandler
         }
     }
 }
+
+#endif
