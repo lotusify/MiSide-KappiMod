@@ -2,6 +2,8 @@
 
 ## Информация о модификации (English version below)
 
+Последняя версия мода доступна [здесь](https://github.com/MrSago/ModSide/releases)
+
 ### Поддерживаемые загрузчики модов
 
 |  Загрузчик  | Поддержка |
@@ -49,6 +51,8 @@
 ---
 
 ## Information about modification (English)
+
+Latest version of the mod is available [here](https://github.com/MrSago/ModSide/releases)
 
 ### Supported mod loaders
 
