@@ -3,8 +3,4 @@
 bin
 obj
 
-all.bat
-build.bat
-copy.bat
-run.bat
-log.bat
+Release
