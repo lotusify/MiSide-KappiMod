@@ -1,12 +1,13 @@
 #if BIE
 using BepInEx.Configuration;
 using KappiMod.Config;
+using KappiMod.Properties;
 
 namespace KappiMod.Loader.BepInEx;
 
 public class BepInExConfigHandler : ConfigHandler
 {
-    internal const string CFG_NAME = Properties.BuildInfo.NAME;
+    internal const string CFG_NAME = BuildInfo.NAME;
 
     internal ConfigFile Config => KappiModBepInExPlugin.Instance.Config;
 
