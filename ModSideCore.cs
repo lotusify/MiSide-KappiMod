@@ -2,9 +2,11 @@
 using ModSide.Loader;
 using ModSide.Mods;
 using ModSide.Properties;
-using ModSide.UI;
 using UnityEngine;
+#if UI
+using ModSide.UI;
 using UniverseLib;
+#endif
 
 namespace ModSide;
 
@@ -25,6 +27,7 @@ public static class ModSideCore
 
         ConfigManager.Init(Loader.ConfigHandler);
 
+#if UI
         Universe.Init(
             0.0f,
             LateInitUI,
@@ -36,10 +39,12 @@ public static class ModSideCore
                 Unhollowed_Modules_Folder = Loader.UnhollowedModulesFolder,
             }
         );
+#endif
 
         InitMods();
     }
 
+#if UI
     private static void LateInitUI()
     {
         Log("Loading UI...");
@@ -48,6 +53,7 @@ public static class ModSideCore
 
         Log($"{BuildInfo.NAME} v{BuildInfo.VERSION} initialized!");
     }
+#endif
 
     private static void InitMods()
     {

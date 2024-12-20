@@ -16,7 +16,7 @@
   <!--Configurations-->
   <PropertyGroup Condition="'$(Configuration)'=='ML'">
     <OutputPath>bin\Release</OutputPath>
-    <DefineConstants>ML</DefineConstants>
+    <DefineConstants>ML,UI</DefineConstants>
     <AssemblyName>ModSide.ModLoader</AssemblyName>
   </PropertyGroup>
 
