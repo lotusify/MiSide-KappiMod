@@ -6,7 +6,7 @@ namespace ModSide.Loader.MelonLoader;
 
 public class MelonLoaderConfigHandler : ConfigHandler
 {
-    internal const string CFG_NAME = BuildInfo.Name;
+    internal const string CFG_NAME = Properties.BuildInfo.NAME;
 
     internal MelonPreferences_Category prefCategory = null!;
 
