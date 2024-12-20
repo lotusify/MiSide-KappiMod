@@ -12,5 +12,3 @@ using KappiMod.Properties;
 
 [assembly: ComVisible(false)]
 [assembly: Guid(BuildInfo.GUID)]
-
-namespace KappiMod.Properties;
