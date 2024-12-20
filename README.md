@@ -1,8 +1,8 @@
-# _ModSide_ mod for MiSide
+# _Kappi_ mod pack for MiSide
 
-## Информация о модификации (English version below)
+## Информация о модификациях (English version below)
 
-Последняя версия мода доступна [здесь](https://github.com/MrSago/ModSide/releases)
+Последняя версия мод пака доступна [здесь](https://github.com/MrSago/MiSide-KappiMod/releases)
 
 ### Поддерживаемые загрузчики модов
 
@@ -11,27 +11,27 @@
 | MelonLoader |    ✅     |
 |   BepInEx   |    ⭕     |
 
-**Поддержка для загрузчика BepInEx в работе...**
+**Поддержка для загрузчика BepInEx в разработке...**
 
-### Возможности мода
+### Возможности модификаций
 
-|             Фича             | Статус |
+|             Мод              | Статус |
 | :--------------------------: | :----: |
 |           GUI мода           |   ⭕   |
-|   Режим бега разблокирован   |   ✅   |
-|    Консоль разблокирована    |   ✅   |
+|  Режим бега всегда включен   |   ✅   |
+|    Разблокировка консоли     |   ✅   |
 | Увеличение мощности фонарика |   ✅   |
 |       Возможность лечь       |   ⭕   |
 |  Приседание разблокировано   |   ✅   |
 |     Скроллер time scale      |   ✅   |
 
-## Установка мода
+## Установка мод пака
 
 - Установить один из поддерживаемых загрузчиков
 
   - [MelonLoader](https://github.com/LavaGang/MelonLoader/releases)
 
-- Извлечь файлы из архива с релизом в папку с игрой
+- Извлечь файлы из архива с [релизом](https://github.com/MrSago/MiSide-KappiMod/releases) в папку с игрой
 
 - Веселитесь
 
@@ -50,9 +50,9 @@
 
 ---
 
-## Information about modification (English)
+## Information about modifications (English)
 
-Latest version of the mod is available [here](https://github.com/MrSago/ModSide/releases)
+Latest version of the mod pack is available [here](https://github.com/MrSago/MiSide-KappiMod/releases)
 
 ### Supported mod loaders
 
@@ -61,11 +61,11 @@ Latest version of the mod is available [here](https://github.com/MrSago/ModSide/
 | MelonLoader |    ✅     |
 |   BepInEx   |    ⭕     |
 
-**Support for the BepInEx loader in progress...**
+**Support for the BepInEx loader work in progress...**
 
 ### Mod features
 
-|       Feature        | Status |
+|         Mod          | Status |
 | :------------------: | :----: |
 |       Mod GUI        |   ⭕   |
 |  Always run enabler  |   ✅   |
@@ -75,13 +75,13 @@ Latest version of the mod is available [here](https://github.com/MrSago/ModSide/
 |     Sit unlocker     |   ✅   |
 | Time scale scroller  |   ✅   |
 
-## Mod installation
+## Mod pack installation
 
 - Install one of the supported mod loaders
 
   - [MelonLoader](https://github.com/LavaGang/MelonLoader/releases)
 
-- Extract the files from the release archive in the game directory
+- Extract the files from the [release](https://github.com/MrSago/MiSide-KappiMod/releases) archive in the game directory
 
 - Have fun
 

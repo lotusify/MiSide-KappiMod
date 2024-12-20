@@ -1,8 +1,8 @@
 #if ML
 using MelonLoader;
-using ModSide.Config;
+using KappiMod.Config;
 
-namespace ModSide.Loader.MelonLoader;
+namespace KappiMod.Loader.MelonLoader;
 
 public class MelonLoaderConfigHandler : ConfigHandler
 {

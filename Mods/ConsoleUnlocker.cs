@@ -5,15 +5,15 @@ using Il2Cpp;
 using BepInEx.IL2CPP;
 #endif
 
-namespace ModSide.Mods;
+namespace KappiMod.Mods;
 
 public static class ConsoleUnlocker
 {
     public static void Init()
     {
-        ModSideCore.Loader.SceneWasInitialized += OnSceneWasInitialized;
+        KappiModCore.Loader.SceneWasInitialized += OnSceneWasInitialized;
 
-        ModSideCore.Log($"[{nameof(ConsoleUnlocker)}] Initialized");
+        KappiModCore.Log($"[{nameof(ConsoleUnlocker)}] Initialized");
     }
 
     private static void OnSceneWasInitialized(int buildIndex, string sceneName)
@@ -25,7 +25,7 @@ public static class ConsoleUnlocker
                 case ObjectNames.MAIN_MENU_SCENE:
                     ConsoleMain.liteVersion = false;
 
-                    ModSideCore.Log($"[{nameof(ConsoleUnlocker)}] Console successfully unlocked!");
+                    KappiModCore.Log($"[{nameof(ConsoleUnlocker)}] Console successfully unlocked!");
                     break;
 
                 default:
@@ -34,7 +34,7 @@ public static class ConsoleUnlocker
         }
         catch (Exception e)
         {
-            ModSideCore.LogError($"[{nameof(ConsoleUnlocker)}] {e.Message}");
+            KappiModCore.LogError($"[{nameof(ConsoleUnlocker)}] {e.Message}");
         }
     }
 }

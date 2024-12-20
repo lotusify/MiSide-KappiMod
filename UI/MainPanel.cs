@@ -1,6 +1,6 @@
 #if UI
-using ModSide.Mods;
-using ModSide.Properties;
+using KappiMod.Mods;
+using KappiMod.Properties;
 using UnityEngine;
 using UnityEngine.UI;
 using UniverseLib;
@@ -8,7 +8,7 @@ using UniverseLib.UI;
 using UniverseLib.UI.Models;
 using UniverseLib.UI.Panels;
 
-namespace ModSide.UI;
+namespace KappiMod.UI;
 
 public class MainPanel : PanelBase
 {

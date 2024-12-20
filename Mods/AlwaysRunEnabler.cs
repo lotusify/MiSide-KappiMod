@@ -6,7 +6,7 @@ using Il2Cpp;
 using BepInEx.IL2CPP;
 #endif
 
-namespace ModSide.Mods;
+namespace KappiMod.Mods;
 
 public static class AlwaysRunEnabler
 {
@@ -18,15 +18,17 @@ public static class AlwaysRunEnabler
         {
             _enabled = value;
 
-            ModSideCore.Log($"[{nameof(AlwaysRunEnabler)}] " + (_enabled ? "Enabled" : "Disabled"));
+            KappiModCore.Log(
+                $"[{nameof(AlwaysRunEnabler)}] " + (_enabled ? "Enabled" : "Disabled")
+            );
         }
     }
 
     public static void Init()
     {
-        ModSideCore.Loader.Update += OnUpdate;
+        KappiModCore.Loader.Update += OnUpdate;
 
-        ModSideCore.Log($"[{nameof(AlwaysRunEnabler)}] Initialized");
+        KappiModCore.Log($"[{nameof(AlwaysRunEnabler)}] Initialized");
     }
 
     private static void OnUpdate(object sender)
@@ -54,7 +56,7 @@ public static class AlwaysRunEnabler
         }
         catch (Exception e)
         {
-            ModSideCore.LogError($"[{nameof(AlwaysRunEnabler)}] {e.Message}");
+            KappiModCore.LogError($"[{nameof(AlwaysRunEnabler)}] {e.Message}");
         }
     }
 }

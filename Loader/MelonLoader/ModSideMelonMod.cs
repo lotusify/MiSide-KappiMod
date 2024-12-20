@@ -1,29 +1,29 @@
 #if ML
 using MelonLoader;
 using MelonLoader.Utils;
-using ModSide.Config;
+using KappiMod.Config;
 
 [assembly: MelonPlatformDomain(MelonPlatformDomainAttribute.CompatibleDomains.IL2CPP)]
 [assembly: MelonInfo(
-    typeof(ModSide.Loader.MelonLoader.ModSideMelonMod),
-    ModSide.Properties.BuildInfo.NAME,
-    ModSide.Properties.BuildInfo.VERSION,
-    ModSide.Properties.BuildInfo.AUTHOR,
-    ModSide.Properties.BuildInfo.DOWNLOADLINK
+    typeof(KappiMod.Loader.MelonLoader.KappiModeMelonMod),
+    KappiMod.Properties.BuildInfo.NAME,
+    KappiMod.Properties.BuildInfo.VERSION,
+    KappiMod.Properties.BuildInfo.AUTHOR,
+    KappiMod.Properties.BuildInfo.DOWNLOADLINK
 )]
 [assembly: MelonOptionalDependencies("UniverseLib")]
 [assembly: MelonGame("AIHASTO", "MiSideFull")]
 [assembly: MelonColor(255, 196, 21, 169)]
 [assembly: MelonAuthorColor(255, 33, 164, 176)]
 
-namespace ModSide.Loader.MelonLoader;
+namespace KappiMod.Loader.MelonLoader;
 
-public class ModSideMelonMod : MelonMod, IModSideLoader
+public class KappiModeMelonMod : MelonMod, IKappiModLoader
 {
-    public string ModSideFolderDestination => MelonEnvironment.ModsDirectory;
+    public string KappiModFolderDestination => MelonEnvironment.ModsDirectory;
     public string UnhollowedModulesFolder =>
         Path.Combine(
-            Path.GetDirectoryName(ModSideFolderDestination) ?? "",
+            Path.GetDirectoryName(KappiModFolderDestination) ?? "",
             Path.Combine("MelonLoader", "Il2CppAssemblies")
         );
 
@@ -49,7 +49,7 @@ public class ModSideMelonMod : MelonMod, IModSideLoader
     public override void OnLateInitializeMelon()
     {
         _configHandler = new MelonLoaderConfigHandler();
-        ModSideCore.Init(this);
+        KappiModCore.Init(this);
     }
 }
 

@@ -1,4 +1,4 @@
-namespace ModSide.Config;
+namespace KappiMod.Config;
 
 public class ConfigElement<T> : IConfigElement
 {

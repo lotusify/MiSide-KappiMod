@@ -1,4 +1,4 @@
-namespace ModSide;
+namespace KappiMod;
 
 public static class ObjectNames
 {

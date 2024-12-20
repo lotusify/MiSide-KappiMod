@@ -9,7 +9,7 @@
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <AssemblyName>ModSide</AssemblyName>
+    <AssemblyName>KappiMod</AssemblyName>
     <Configurations>ML;BIE</Configurations>
   </PropertyGroup>
 
@@ -17,13 +17,13 @@
   <PropertyGroup Condition="'$(Configuration)'=='ML'">
     <OutputPath>bin\Release</OutputPath>
     <DefineConstants>ML,UI</DefineConstants>
-    <AssemblyName>ModSide.ModLoader</AssemblyName>
+    <AssemblyName>KappiMod.MelonLoader</AssemblyName>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='BIE'">
     <OutputPath>bin\Release</OutputPath>
     <DefineConstants>BIE</DefineConstants>
-    <AssemblyName>ModSide.BepInEx</AssemblyName>
+    <AssemblyName>KappiMod.BepInEx</AssemblyName>
   </PropertyGroup>
   <!---->
 

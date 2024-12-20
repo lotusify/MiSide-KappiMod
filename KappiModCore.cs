@@ -1,20 +1,20 @@
-﻿using ModSide.Config;
-using ModSide.Loader;
-using ModSide.Mods;
-using ModSide.Properties;
+﻿using KappiMod.Config;
+using KappiMod.Loader;
+using KappiMod.Mods;
+using KappiMod.Properties;
 using UnityEngine;
 #if UI
-using ModSide.UI;
+using KappiMod.UI;
 using UniverseLib;
 #endif
 
-namespace ModSide;
+namespace KappiMod;
 
-public static class ModSideCore
+public static class KappiModCore
 {
-    public static IModSideLoader Loader { get; private set; } = null!;
+    public static IKappiModLoader Loader { get; private set; } = null!;
 
-    public static void Init(IModSideLoader loader)
+    public static void Init(IKappiModLoader loader)
     {
         if (Loader is not null)
         {

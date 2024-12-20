@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace ModSide.Mods;
+namespace KappiMod.Mods;
 
 public static class TimeScaleScroller
 {
@@ -17,7 +17,7 @@ public static class TimeScaleScroller
                 ResetTimeScale();
             }
 
-            ModSideCore.Log(
+            KappiModCore.Log(
                 $"[{nameof(TimeScaleScroller)}] " + (_enabled ? "Enabled" : "Disabled")
             );
         }
@@ -27,9 +27,9 @@ public static class TimeScaleScroller
 
     public static void Init()
     {
-        ModSideCore.Loader.Update += OnUpdate;
+        KappiModCore.Loader.Update += OnUpdate;
 
-        ModSideCore.Log($"[{nameof(TimeScaleScroller)}] Initialized");
+        KappiModCore.Log($"[{nameof(TimeScaleScroller)}] Initialized");
     }
 
     private static void OnUpdate(object sender)
@@ -65,7 +65,7 @@ public static class TimeScaleScroller
     private static void SetTimeScale(float timeScale)
     {
         Time.timeScale = Mathf.Max(0.0f, timeScale);
-        ModSideCore.Log($"[{nameof(TimeScaleScroller)}] TimeScale: {Time.timeScale}");
+        KappiModCore.Log($"[{nameof(TimeScaleScroller)}] TimeScale: {Time.timeScale}");
     }
 
     private static void ResetTimeScale()

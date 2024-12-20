@@ -4,30 +4,30 @@ using BepInEx.IL2CPP;
 using BepInEx.Logging;
 using BepInEx.Unity.IL2CPP;
 using HarmonyLib;
-using ModSide.Config;
-using ModSide.Properties;
+using KappiMod.Config;
+using KappiMod.Properties;
 
-namespace ModSide.Loader.BepInEx;
+namespace KappiMod.Loader.BepInEx;
 
 [BepInPlugin(
-    ModSide.Properties.BuildInfo.GUID,
-    ModSide.Properties.BuildInfo.NAME,
-    ModSide.Properties.BuildInfo.VERSION
+    KappiMod.Properties.BuildInfo.GUID,
+    KappiMod.Properties.BuildInfo.NAME,
+    KappiMod.Properties.BuildInfo.VERSION
 )]
-public class ModSideBepInPlugin : BasePlugin, IModSideLoader
+public class KappiModBepInExPlugin : BasePlugin, IKappiModLoader
 {
     private const string IL2CPP_LIBS_FOLDER = "interop";
 
-    public static ModSideBepInPlugin Instance = null!;
+    public static KappiModBepInExPlugin Instance = null!;
 
-    public string ModSideFolderDestination => Paths.PluginPath;
+    public string KappiModFolderDestination => Paths.PluginPath;
     public string UnhollowedModulesFolder =>
         Path.Combine(Paths.BepInExRootPath, IL2CPP_LIBS_FOLDER);
 
     private BepInExConfigHandler _configHandler = null!;
     public ConfigHandler ConfigHandler => _configHandler;
 
-    private static readonly Harmony _harmony = new(ModSide.Properties.BuildInfo.GUID);
+    private static readonly Harmony _harmony = new(KappiMod.Properties.BuildInfo.GUID);
     public Harmony HarmonyInstance => _harmony;
 
     public event Action<object>? Update;
@@ -43,7 +43,7 @@ public class ModSideBepInPlugin : BasePlugin, IModSideLoader
     {
         Instance = this;
         _configHandler = new BepInExConfigHandler();
-        ModSideCore.Init(this);
+        KappiModCore.Init(this);
     }
 
     public override void Load()

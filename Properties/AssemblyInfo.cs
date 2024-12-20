@@ -1,6 +1,6 @@
 using System.Reflection;
 using System.Runtime.InteropServices;
-using ModSide.Properties;
+using KappiMod.Properties;
 
 [assembly: AssemblyTitle(BuildInfo.NAME)]
 [assembly: AssemblyDescription(BuildInfo.DESCRIPTION)]
@@ -13,4 +13,4 @@ using ModSide.Properties;
 [assembly: ComVisible(false)]
 [assembly: Guid(BuildInfo.GUID)]
 
-namespace ModSide.Properties;
+namespace KappiMod.Properties;

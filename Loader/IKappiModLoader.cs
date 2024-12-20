@@ -1,10 +1,10 @@
-using ModSide.Config;
+using KappiMod.Config;
 
-namespace ModSide.Loader;
+namespace KappiMod.Loader;
 
-public interface IModSideLoader
+public interface IKappiModLoader
 {
-    string ModSideFolderDestination { get; }
+    string KappiModFolderDestination { get; }
     string UnhollowedModulesFolder { get; }
 
     ConfigHandler ConfigHandler { get; }

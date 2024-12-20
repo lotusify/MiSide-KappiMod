@@ -6,7 +6,7 @@ using Il2Cpp;
 using BepInEx.IL2CPP;
 #endif
 
-namespace ModSide.Mods;
+namespace KappiMod.Mods;
 
 public static class SitUnlocker
 {
@@ -22,15 +22,15 @@ public static class SitUnlocker
                 SetPlayerSitState(false);
             }
 
-            ModSideCore.Log($"[{nameof(SitUnlocker)}] " + (_enabled ? "Enabled" : "Disabled"));
+            KappiModCore.Log($"[{nameof(SitUnlocker)}] " + (_enabled ? "Enabled" : "Disabled"));
         }
     }
 
     public static void Init()
     {
-        ModSideCore.Loader.Update += OnUpdate;
+        KappiModCore.Loader.Update += OnUpdate;
 
-        ModSideCore.Log($"[{nameof(SitUnlocker)}] Initialized");
+        KappiModCore.Log($"[{nameof(SitUnlocker)}] Initialized");
     }
 
     private static void OnUpdate(object sender)
@@ -58,7 +58,7 @@ public static class SitUnlocker
         }
         catch (Exception e)
         {
-            ModSideCore.LogError($"[{nameof(SitUnlocker)}] {e.Message}");
+            KappiModCore.LogError($"[{nameof(SitUnlocker)}] {e.Message}");
         }
     }
 }

@@ -1,4 +1,4 @@
-namespace ModSide.Config;
+namespace KappiMod.Config;
 
 public abstract class ConfigHandler
 {

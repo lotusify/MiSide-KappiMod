@@ -1,9 +1,9 @@
 #if UI
-using ModSide.Properties;
+using KappiMod.Properties;
 using UnityEngine;
 using UniverseLib.UI;
 
-namespace ModSide.UI;
+namespace KappiMod.UI;
 
 public static class UIManager
 {
@@ -30,7 +30,7 @@ public static class UIManager
 
         Panel = new(UiBase);
 
-        ModSideCore.Loader.Update += OnUpdate;
+        KappiModCore.Loader.Update += OnUpdate;
     }
 
     private static void OnUpdate(object sender)

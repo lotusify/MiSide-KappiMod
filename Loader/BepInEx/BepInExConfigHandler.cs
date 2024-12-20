@@ -1,14 +1,14 @@
 #if BIE
 using BepInEx.Configuration;
-using ModSide.Config;
+using KappiMod.Config;
 
-namespace ModSide.Loader.BepInEx;
+namespace KappiMod.Loader.BepInEx;
 
 public class BepInExConfigHandler : ConfigHandler
 {
     internal const string CFG_NAME = Properties.BuildInfo.NAME;
 
-    internal ConfigFile Config => ModSideBepInPlugin.Instance.Config;
+    internal ConfigFile Config => KappiModBepInExPlugin.Instance.Config;
 
     public override void Init() { }
 
@@ -59,7 +59,7 @@ public class BepInExConfigHandler : ConfigHandler
             return;
         }
 
-        ModSideCore.Log("Could not get config entry '" + element.Name + "'");
+        KappiModCore.Log("Could not get config entry '" + element.Name + "'");
     }
 }
 

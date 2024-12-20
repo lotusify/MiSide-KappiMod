@@ -6,7 +6,7 @@ using Il2Cpp;
 using BepInEx.IL2CPP;
 #endif
 
-namespace ModSide.Mods;
+namespace KappiMod.Mods;
 
 public static class FlashlightIncreaser
 {
@@ -26,7 +26,7 @@ public static class FlashlightIncreaser
                 Toggle();
             }
 
-            ModSideCore.Log(
+            KappiModCore.Log(
                 $"[{nameof(FlashlightIncreaser)}] " + (_enabled ? "Enabled" : "Disabled")
             );
         }
@@ -41,9 +41,9 @@ public static class FlashlightIncreaser
 
     public static void Init()
     {
-        ModSideCore.Loader.Update += OnUpdate;
+        KappiModCore.Loader.Update += OnUpdate;
 
-        ModSideCore.Log($"[{nameof(FlashlightIncreaser)}] Initialized");
+        KappiModCore.Log($"[{nameof(FlashlightIncreaser)}] Initialized");
     }
 
     private static void OnUpdate(object sender)
@@ -71,7 +71,7 @@ public static class FlashlightIncreaser
             RevertFlashlightState();
         }
 
-        ModSideCore.Log(
+        KappiModCore.Log(
             $"[{nameof(FlashlightIncreaser)}] Flashlight "
                 + (_isFlashlightEnabled ? "increased" : "restored")
         );
@@ -85,7 +85,7 @@ public static class FlashlightIncreaser
             _player = UnityEngine.Object.FindObjectOfType<WorldPlayer>();
             if (_player is null)
             {
-                ModSideCore.LogError(
+                KappiModCore.LogError(
                     $"[{nameof(FlashlightIncreaser)}] Object {nameof(WorldPlayer)} not found!"
                 );
 
@@ -101,7 +101,7 @@ public static class FlashlightIncreaser
         }
         catch (Exception e)
         {
-            ModSideCore.LogError($"[{nameof(FlashlightIncreaser)}] {e.Message}");
+            KappiModCore.LogError($"[{nameof(FlashlightIncreaser)}] {e.Message}");
 
             _isFlashlightEnabled = false;
             _player = null;
@@ -132,7 +132,7 @@ public static class FlashlightIncreaser
         }
         catch (Exception e)
         {
-            ModSideCore.LogError($"[{nameof(FlashlightIncreaser)}] {e.Message}");
+            KappiModCore.LogError($"[{nameof(FlashlightIncreaser)}] {e.Message}");
 
             _isFlashlightEnabled = false;
             _player = null;
