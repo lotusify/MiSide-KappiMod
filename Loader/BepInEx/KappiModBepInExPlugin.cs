@@ -6,49 +6,52 @@ using BepInEx.Unity.IL2CPP;
 using HarmonyLib;
 using KappiMod.Config;
 using KappiMod.Properties;
+using UnityEngine;
 
 namespace KappiMod.Loader.BepInEx;
 
-[BepInPlugin(
-    KappiMod.Properties.BuildInfo.GUID,
-    KappiMod.Properties.BuildInfo.NAME,
-    KappiMod.Properties.BuildInfo.VERSION
-)]
+[BepInPlugin(BuildInfo.GUID, BuildInfo.NAME, BuildInfo.VERSION)]
 public class KappiModBepInExPlugin : BasePlugin, IKappiModLoader
 {
-    private const string IL2CPP_LIBS_FOLDER = "interop";
-
     public static KappiModBepInExPlugin Instance = null!;
 
     public string KappiModFolderDestination => Paths.PluginPath;
-    public string UnhollowedModulesFolder =>
-        Path.Combine(Paths.BepInExRootPath, IL2CPP_LIBS_FOLDER);
+    public string UnhollowedModulesFolder => Path.Combine(Paths.BepInExRootPath, "interop");
 
     private BepInExConfigHandler _configHandler = null!;
     public ConfigHandler ConfigHandler => _configHandler;
 
-    private static readonly Harmony _harmony = new(KappiMod.Properties.BuildInfo.GUID);
+    private static readonly Harmony _harmony = new(BuildInfo.GUID);
     public Harmony HarmonyInstance => _harmony;
 
     public event Action? Update;
     public event Action<int, string>? SceneWasLoaded;
     public event Action<int, string>? SceneWasInitialized;
 
-    private ManualLogSource LogSource => Log;
-    public Action<object> OnLogMessage => LogSource.LogMessage;
-    public Action<object> OnLogWarning => LogSource.LogWarning;
-    public Action<object> OnLogError => LogSource.LogError;
+    public Action<object> OnLogMessage => Log.LogMessage;
+    public Action<object> OnLogWarning => Log.LogWarning;
+    public Action<object> OnLogError => Log.LogError;
 
-    private void Init()
-    {
-        Instance = this;
-        _configHandler = new BepInExConfigHandler();
-        KappiModCore.Init(this);
-    }
+    public void OnUpdate() => Update?.Invoke();
+
+    public void OnSceneWasLoaded(int buildIndex, string sceneName) =>
+        SceneWasLoaded?.Invoke(buildIndex, sceneName);
+
+    public void OnSceneWasInitialized(int buildIndex, string sceneName) =>
+        SceneWasInitialized?.Invoke(buildIndex, sceneName);
 
     public override void Load()
     {
-        Init();
+        Instance = this;
+        _configHandler = new BepInExConfigHandler();
+        HarmonyInstance.PatchAll(typeof(BepInExPatches));
+        IL2CPPChainloader.AddUnityComponent(typeof(BepInExEventProxy));
+        KappiModCore.Init(this);
+    }
+
+    private class BepInExEventProxy : MonoBehaviour
+    {
+        private void Update() => Instance?.OnUpdate();
     }
 }
 
