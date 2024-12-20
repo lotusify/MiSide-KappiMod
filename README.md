@@ -1,4 +1,4 @@
-# _Kappi_ mod pack for MiSide
+# _KappiMod_ pack for MiSide
 
 ## Информация о модификациях (English version below)
 
