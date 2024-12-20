@@ -3,13 +3,14 @@
   <PropertyGroup>
     <OutputType>library</OutputType>
     <TargetFramework>net6.0</TargetFramework>
+    <Platforms>x64</Platforms>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Platforms>x64</Platforms>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AssemblyName>ModSide</AssemblyName>
     <Configurations>ML</Configurations>
   </PropertyGroup>
 
@@ -26,9 +27,18 @@
   </PropertyGroup> -->
 
   <ItemGroup>
-    <Reference Include="$(ProjectDir)Assemblies\Il2CppAssemblies\*.dll" />
-    <Reference Include="$(ProjectDir)Assemblies\net6\*.dll" />
-    <Reference Include="$(ProjectDir)Assemblies\UserLibs\*.dll" />
+    <Content Include="$(ProjectDir)Assemblies\*">        
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>         
+    </Content>  
+    <Reference Include="$(ProjectDir)Assemblies\Il2CppAssemblies\*.dll">
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="$(ProjectDir)Assemblies\net6\*.dll" >
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="$(ProjectDir)Assemblies\UserLibs\*.dll" >
+      <Private>false</Private>
+    </Reference>
   </ItemGroup>
 
 </Project>
