@@ -6,13 +6,13 @@ namespace ModSide.Loader.MelonLoader;
 
 public class MelonLoaderConfigHandler : ConfigHandler
 {
-    internal const string CFG_NAME = BuildInfo.Name;
+    internal const string CFG_NAME = Properties.BuildInfo.NAME;
 
-    internal MelonPreferences_Category prefCategory = null!;
+    internal MelonPreferences_Category PrefCategory = null!;
 
     public override void Init()
     {
-        prefCategory = MelonPreferences.CreateCategory(CFG_NAME, $"{CFG_NAME} Configuration");
+        PrefCategory = MelonPreferences.CreateCategory(CFG_NAME, $"{CFG_NAME} Configuration");
     }
 
     public override void LoadConfig()
@@ -20,7 +20,7 @@ public class MelonLoaderConfigHandler : ConfigHandler
         foreach (var element in ConfigManager.ConfigElements)
         {
             var key = element.Key;
-            if (prefCategory.GetEntry(key) is not null)
+            if (PrefCategory.GetEntry(key) is not null)
             {
                 var config = element.Value;
                 config.BoxedValue = config.GetLoaderConfigValue();
@@ -34,7 +34,7 @@ public class MelonLoaderConfigHandler : ConfigHandler
 
     public override void RegisterConfigElement<T>(ConfigElement<T> element)
     {
-        var entry = prefCategory.CreateEntry(
+        var entry = PrefCategory.CreateEntry(
             element.Name,
             element.Value,
             null,
@@ -47,7 +47,7 @@ public class MelonLoaderConfigHandler : ConfigHandler
 
     public override T GetConfigValue<T>(ConfigElement<T> element)
     {
-        if (prefCategory.GetEntry(element.Name) is MelonPreferences_Entry<T> entry)
+        if (PrefCategory.GetEntry(element.Name) is MelonPreferences_Entry<T> entry)
         {
             return entry.Value;
         }
@@ -56,7 +56,7 @@ public class MelonLoaderConfigHandler : ConfigHandler
 
     public override void SetConfigValue<T>(ConfigElement<T> element, T value)
     {
-        if (prefCategory.GetEntry(element.Name) is MelonPreferences_Entry<T> entry)
+        if (PrefCategory.GetEntry(element.Name) is MelonPreferences_Entry<T> entry)
         {
             entry.Value = value;
         }

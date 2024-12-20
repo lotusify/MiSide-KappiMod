@@ -1,3 +1,4 @@
+#if UI
 using ModSide.Mods;
 using ModSide.Properties;
 using UnityEngine;
@@ -185,3 +186,5 @@ public class MainPanel : PanelBase
         );
     }
 }
+
+#endif

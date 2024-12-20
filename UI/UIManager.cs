@@ -1,3 +1,4 @@
+#if UI
 using ModSide.Properties;
 using UnityEngine;
 using UniverseLib.UI;
@@ -40,3 +41,5 @@ public static class UIManager
         }
     }
 }
+
+#endif
