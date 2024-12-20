@@ -1,7 +1,6 @@
 #if ML
 using Il2Cpp;
-#endif
-#if BIE
+#elif BIE
 using BepInEx.IL2CPP;
 #endif
 
