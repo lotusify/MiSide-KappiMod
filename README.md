@@ -9,21 +9,19 @@
 |  Загрузчик  | Поддержка |
 | :---------: | :-------: |
 | MelonLoader |    ✅     |
-|   BepInEx   |    ⭕     |
-
-**Поддержка для загрузчика BepInEx в разработке...**
+|   BepInEx   |    ✅     |
 
 ### Возможности модификаций
 
-|             Мод              | Статус |
-| :--------------------------: | :----: |
-|           GUI мода           |   ⭕   |
-|  Режим бега всегда включен   |   ✅   |
-|    Разблокировка консоли     |   ✅   |
-| Увеличение мощности фонарика |   ✅   |
-|       Возможность лечь       |   ⭕   |
-|  Приседание разблокировано   |   ✅   |
-|     Скроллер time scale      |   ✅   |
+|               Мод               | Статус |
+| :-----------------------------: | :----: |
+| GUI мода (только с MelonLoader) |   ⭕   |
+|    Режим бега всегда включен    |   ✅   |
+|      Разблокировка консоли      |   ✅   |
+|  Увеличение мощности фонарика   |   ✅   |
+|        Возможность лечь         |   ⭕   |
+|    Разблокировка приседания     |   ✅   |
+|       Скроллер time scale       |   ✅   |
 
 ## Установка мод пака
 
@@ -59,21 +57,19 @@ Latest version of the mod pack is available [here](https://github.com/MrSago/MiS
 | Mod loader  | Supported |
 | :---------: | :-------: |
 | MelonLoader |    ✅     |
-|   BepInEx   |    ⭕     |
-
-**Support for the BepInEx loader work in progress...**
+|   BepInEx   |    ✅     |
 
 ### Mod features
 
-|         Mod          | Status |
-| :------------------: | :----: |
-|       Mod GUI        |   ⭕   |
-|  Always run enabler  |   ✅   |
-|   Console unlocker   |   ✅   |
-| Flashlight increaser |   ✅   |
-|      Lying down      |   ⭕   |
-|     Sit unlocker     |   ✅   |
-| Time scale scroller  |   ✅   |
+|            Mod             | Status |
+| :------------------------: | :----: |
+| Mod GUI (MelonLoader only) |   ⭕   |
+|     Always run enabler     |   ✅   |
+|      Console unlocker      |   ✅   |
+|    Flashlight increaser    |   ✅   |
+|         Lying down         |   ⭕   |
+|        Sit unlocker        |   ✅   |
+|    Time scale scroller     |   ✅   |
 
 ## Mod pack installation
 
