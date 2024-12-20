@@ -31,7 +31,7 @@ public static class AlwaysRunEnabler
         KappiModCore.Log($"[{nameof(AlwaysRunEnabler)}] Initialized");
     }
 
-    private static void OnUpdate(object sender)
+    private static void OnUpdate()
     {
         if (!_enabled)
         {

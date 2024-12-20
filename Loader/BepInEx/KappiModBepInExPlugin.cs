@@ -30,7 +30,7 @@ public class KappiModBepInExPlugin : BasePlugin, IKappiModLoader
     private static readonly Harmony _harmony = new(KappiMod.Properties.BuildInfo.GUID);
     public Harmony HarmonyInstance => _harmony;
 
-    public event Action<object>? Update;
+    public event Action? Update;
     public event Action<int, string>? SceneWasLoaded;
     public event Action<int, string>? SceneWasInitialized;
 

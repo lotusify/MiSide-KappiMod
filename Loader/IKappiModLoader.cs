@@ -9,7 +9,7 @@ public interface IKappiModLoader
 
     ConfigHandler ConfigHandler { get; }
 
-    event Action<object>? Update;
+    event Action? Update;
     event Action<int, string>? SceneWasLoaded;
     event Action<int, string>? SceneWasInitialized;
 

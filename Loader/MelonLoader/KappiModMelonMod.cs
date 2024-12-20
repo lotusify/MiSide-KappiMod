@@ -30,7 +30,7 @@ public class KappiModeMelonMod : MelonMod, IKappiModLoader
     private MelonLoaderConfigHandler _configHandler = null!;
     public ConfigHandler ConfigHandler => _configHandler;
 
-    public event Action<object>? Update;
+    public event Action? Update;
     public event Action<int, string>? SceneWasLoaded;
     public event Action<int, string>? SceneWasInitialized;
 
@@ -38,7 +38,7 @@ public class KappiModeMelonMod : MelonMod, IKappiModLoader
     public Action<object> OnLogWarning => MelonLogger.Warning;
     public Action<object> OnLogError => MelonLogger.Error;
 
-    public override void OnUpdate() => Update?.Invoke(this);
+    public override void OnUpdate() => Update?.Invoke();
 
     public override void OnSceneWasLoaded(int buildIndex, string sceneName) =>
         SceneWasLoaded?.Invoke(buildIndex, sceneName);

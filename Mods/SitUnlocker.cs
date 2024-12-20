@@ -33,7 +33,7 @@ public static class SitUnlocker
         KappiModCore.Log($"[{nameof(SitUnlocker)}] Initialized");
     }
 
-    private static void OnUpdate(object sender)
+    private static void OnUpdate()
     {
         if (!_enabled)
         {

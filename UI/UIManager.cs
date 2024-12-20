@@ -33,7 +33,7 @@ public static class UIManager
         KappiModCore.Loader.Update += OnUpdate;
     }
 
-    private static void OnUpdate(object sender)
+    private static void OnUpdate()
     {
         if (Input.GetKeyDown(KeyCode.F1))
         {

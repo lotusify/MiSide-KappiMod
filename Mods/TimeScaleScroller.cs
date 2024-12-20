@@ -32,7 +32,7 @@ public static class TimeScaleScroller
         KappiModCore.Log($"[{nameof(TimeScaleScroller)}] Initialized");
     }
 
-    private static void OnUpdate(object sender)
+    private static void OnUpdate()
     {
         if (!_enabled)
         {

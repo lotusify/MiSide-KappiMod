@@ -46,7 +46,7 @@ public static class FlashlightIncreaser
         KappiModCore.Log($"[{nameof(FlashlightIncreaser)}] Initialized");
     }
 
-    private static void OnUpdate(object sender)
+    private static void OnUpdate()
     {
         if (!_enabled)
         {
