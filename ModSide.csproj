@@ -1,9 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <OutputType>library</OutputType>
     <TargetFramework>net6.0</TargetFramework>
-    <Platforms>x64</Platforms>
+    <PlatformTarget>x64</PlatformTarget>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -16,13 +15,13 @@
 
   <!--Configurations-->
   <PropertyGroup Condition="'$(Configuration)'=='ML'">
-    <OutputPath>bin\$(Configuration)</OutputPath>
+    <OutputPath>bin\Release</OutputPath>
     <DefineConstants>ML</DefineConstants>
     <AssemblyName>ModSide.ModLoader</AssemblyName>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='BIE'">
-    <OutputPath>bin\$(Configuration)\ModSide.BepInEx</OutputPath>
+    <OutputPath>bin\Release</OutputPath>
     <DefineConstants>BIE</DefineConstants>
     <AssemblyName>ModSide.BepInEx</AssemblyName>
   </PropertyGroup>
@@ -30,31 +29,31 @@
 
   <!--References-->
   <ItemGroup Condition="'$(Configuration)'=='ML'">
-    <Content Include="$(ProjectDir)Assemblies\*">        
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>         
-    </Content>  
+    <Content Include="$(ProjectDir)Assemblies\*">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
     <Reference Include="$(ProjectDir)Assemblies\MelonLoader\*.dll">
       <Private>false</Private>
     </Reference>
   </ItemGroup>
 
   <ItemGroup Condition="'$(Configuration)'=='BIE'">
-    <Content Include="$(ProjectDir)Assemblies\*">        
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>         
-    </Content>  
+    <Content Include="$(ProjectDir)Assemblies\*">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
     <Reference Include="$(ProjectDir)Assemblies\BepInEx\*.dll">
       <Private>false</Private>
     </Reference>
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="$(ProjectDir)Assemblies\*">        
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>         
-    </Content>  
+    <Content Include="$(ProjectDir)Assemblies\*">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
     <Reference Include="$(ProjectDir)Assemblies\UserLibs\*.dll" >
       <Private>false</Private>
     </Reference>
   </ItemGroup>
   <!---->
-
+  
 </Project>
