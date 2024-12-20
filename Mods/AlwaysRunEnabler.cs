@@ -1,5 +1,10 @@
-using Il2Cpp;
 using UnityEngine;
+#if ML
+using Il2Cpp;
+#endif
+#if BIE
+using BepInEx.IL2CPP;
+#endif
 
 namespace ModSide.Mods;
 
