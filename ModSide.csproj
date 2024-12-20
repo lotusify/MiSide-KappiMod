@@ -11,34 +11,50 @@
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <AssemblyName>ModSide</AssemblyName>
-    <Configurations>ML</Configurations>
+    <Configurations>ML;BIE</Configurations>
   </PropertyGroup>
 
+  <!--Configurations-->
   <PropertyGroup Condition="'$(Configuration)'=='ML'">
     <OutputPath>bin\$(Configuration)</OutputPath>
     <DefineConstants>ML</DefineConstants>
     <AssemblyName>ModSide.ModLoader</AssemblyName>
   </PropertyGroup>
 
-  <!-- <PropertyGroup Condition="'$(Configuration)'=='BIE'">
+  <PropertyGroup Condition="'$(Configuration)'=='BIE'">
     <OutputPath>bin\$(Configuration)\ModSide.BepInEx</OutputPath>
     <DefineConstants>BIE</DefineConstants>
     <AssemblyName>ModSide.BepInEx</AssemblyName>
-  </PropertyGroup> -->
+  </PropertyGroup>
+  <!---->
+
+  <!--References-->
+  <ItemGroup Condition="'$(Configuration)'=='ML'">
+    <Content Include="$(ProjectDir)Assemblies\*">        
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>         
+    </Content>  
+    <Reference Include="$(ProjectDir)Assemblies\MelonLoader\*.dll">
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(Configuration)'=='BIE'">
+    <Content Include="$(ProjectDir)Assemblies\*">        
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>         
+    </Content>  
+    <Reference Include="$(ProjectDir)Assemblies\BepInEx\*.dll">
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
 
   <ItemGroup>
     <Content Include="$(ProjectDir)Assemblies\*">        
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>         
     </Content>  
-    <Reference Include="$(ProjectDir)Assemblies\Il2CppAssemblies\*.dll">
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="$(ProjectDir)Assemblies\net6\*.dll" >
-      <Private>false</Private>
-    </Reference>
     <Reference Include="$(ProjectDir)Assemblies\UserLibs\*.dll" >
       <Private>false</Private>
     </Reference>
   </ItemGroup>
+  <!---->
 
 </Project>
