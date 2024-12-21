@@ -28,6 +28,9 @@
 - Установить один из поддерживаемых загрузчиков
 
   - [MelonLoader](https://github.com/LavaGang/MelonLoader/releases)
+    - Просто используйте **установщик** последней версии
+  - [BepInEx](https://github.com/BepInEx/BepInEx/releases)
+    - Нам нужен **BepInEx-Unity.IL2CPP-win-x64-x.x.x**
 
 - Извлечь файлы из архива с [релизом](https://github.com/MrSago/MiSide-KappiMod/releases) в папку с игрой
 
@@ -76,6 +79,9 @@ Latest version of the mod pack is available [here](https://github.com/MrSago/MiS
 - Install one of the supported mod loaders
 
   - [MelonLoader](https://github.com/LavaGang/MelonLoader/releases)
+    - Just use **installer** with latest version
+  - [BepInEx](https://github.com/BepInEx/BepInEx/releases)
+    - We need **BepInEx-Unity.IL2CPP-win-x64-x.x.x**
 
 - Extract the files from the [release](https://github.com/MrSago/MiSide-KappiMod/releases) archive in the game directory
 
