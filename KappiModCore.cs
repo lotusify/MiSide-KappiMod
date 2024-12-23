@@ -1,17 +1,18 @@
 ﻿using KappiMod.Config;
 using KappiMod.Loader;
 using KappiMod.Mods;
+using KappiMod.Patches;
 using KappiMod.Properties;
-using UnityEngine;
-#if UI
 using KappiMod.UI;
+using UnityEngine;
 using UniverseLib;
-#endif
 
 namespace KappiMod;
 
 public static class KappiModCore
 {
+    public const string MOD_DIRECTORY_NAME = "KappiMod";
+
     public static IKappiModLoader Loader { get; private set; } = null!;
 
     public static void Init(IKappiModLoader loader)
@@ -27,24 +28,22 @@ public static class KappiModCore
 
         ConfigManager.Init(Loader.ConfigHandler);
 
-#if UI
         Universe.Init(
-            0.0f,
+            ConfigManager.StartupDelayTime.Value,
             LateInitUI,
             Log,
             new()
             {
                 Disable_EventSystem_Override = ConfigManager.DisableEventSystemOverride.Value,
                 Force_Unlock_Mouse = ConfigManager.ForceUnlockMouse.Value,
-                Unhollowed_Modules_Folder = Loader.UnhollowedModulesFolder,
+                Unhollowed_Modules_Folder = Loader.UnhollowedModulesDirectory,
             }
         );
-#endif
 
         InitMods();
+        InitPatches();
     }
 
-#if UI
     private static void LateInitUI()
     {
         Log("Loading UI...");
@@ -53,15 +52,20 @@ public static class KappiModCore
 
         Log($"{BuildInfo.NAME} v{BuildInfo.VERSION} initialized!");
     }
-#endif
 
     private static void InitMods()
     {
         AlwaysRunEnabler.Init();
         ConsoleUnlocker.Init();
         FlashlightIncreaser.Init();
+        FpsLimit.Init();
         SitUnlocker.Init();
         TimeScaleScroller.Init();
+    }
+
+    private static void InitPatches()
+    {
+        SkipDialogues.Init();
     }
 
     #region LOGGING
