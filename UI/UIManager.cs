@@ -1,4 +1,3 @@
-#if UI
 using KappiMod.Properties;
 using UnityEngine;
 using UniverseLib.UI;
@@ -41,5 +40,3 @@ public static class UIManager
         }
     }
 }
-
-#endif

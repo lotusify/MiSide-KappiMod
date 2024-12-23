@@ -1,5 +1,6 @@
-#if UI
+using KappiMod.Config;
 using KappiMod.Mods;
+using KappiMod.Patches;
 using KappiMod.Properties;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,13 +25,13 @@ public class MainPanel : PanelBase
 
     protected Text StatusBar { get; private set; } = null!;
 
-    private InputFieldRef? _timeScaleController;
+    private GameObject? _fpsLimitRow;
 
     protected override void ConstructPanelContent()
     {
         _ = UIFactory.CreateLabel(
             ContentRoot,
-            BuildInfo.NAME,
+            "ToggleModsLabel",
             "Toggle Mods",
             TextAnchor.MiddleLeft,
             fontSize: 18
@@ -39,14 +40,20 @@ public class MainPanel : PanelBase
         CreateFlashlightIncreaserToggle();
         CreateSitUnlockerToggle();
         CreateTimeScaleScrollerToggle();
+        CreateSkipDialoguesToggle();
 
-        // CreateTimeScaleController();
-
-        // CreateIncreasedFlashlightToggle();
+        _ = UIFactory.CreateLabel(
+            ContentRoot,
+            "SettingsModsLabel",
+            "Settings Mods",
+            TextAnchor.MiddleLeft,
+            fontSize: 18
+        );
+        CreateFpsLimitField();
 
         CreateStatusBar();
 
-        OnClosePanelClicked();
+        // OnClosePanelClicked();
     }
 
     protected override void OnClosePanelClicked()
@@ -64,8 +71,7 @@ public class MainPanel : PanelBase
             out Toggle toggle,
             out Text text
         );
-
-        text.text = "Always Run Enabler";
+        text.text = "Always run enabler";
         toggle.isOn = AlwaysRunEnabler.Enabled;
         toggle.onValueChanged.AddListener(
             (value) =>
@@ -83,8 +89,7 @@ public class MainPanel : PanelBase
             out Toggle toggle,
             out Text text
         );
-
-        text.text = "Flashlight Increaser";
+        text.text = "Flashlight increaser";
         toggle.isOn = FlashlightIncreaser.Enabled;
         toggle.onValueChanged.AddListener(
             (value) =>
@@ -102,8 +107,7 @@ public class MainPanel : PanelBase
             out Toggle toggle,
             out Text text
         );
-
-        text.text = "Sit Unlocker";
+        text.text = "Sit unlocker";
         toggle.isOn = SitUnlocker.Enabled;
         toggle.onValueChanged.AddListener(
             (value) =>
@@ -121,8 +125,7 @@ public class MainPanel : PanelBase
             out Toggle toggle,
             out Text text
         );
-
-        text.text = "Time Scale Scroller";
+        text.text = "Time scale scroller";
         toggle.isOn = TimeScaleScroller.Enabled;
         toggle.onValueChanged.AddListener(
             (value) =>
@@ -132,47 +135,81 @@ public class MainPanel : PanelBase
         );
     }
 
-    #endregion
-
-    private void CreateTimeScaleController()
+    private void CreateSkipDialoguesToggle()
     {
-        _timeScaleController = UIFactory.CreateInputField(
+        _ = UIFactory.CreateToggle(
             ContentRoot,
-            "TimeScaleController",
-            "TimeScale"
-        );
-
-        _timeScaleController.OnValueChanged += (value) =>
-        {
-            if (float.TryParse(value, out float timeScale))
-            {
-                Time.timeScale = timeScale;
-            }
-        };
-
-        _timeScaleController.Text = Time.timeScale.ToString();
-        _timeScaleController.SetActive(true);
-        _timeScaleController.Component.contentType = InputField.ContentType.DecimalNumber;
-        _timeScaleController.Component.ActivateInputField();
-    }
-
-    private void CreateIncreasedFlashlightToggle()
-    {
-        GameObject checkbox = UIFactory.CreateToggle(
-            ContentRoot,
-            "IncreasedFlashlightToggle",
+            "SkipDialoguesToggle",
             out Toggle toggle,
             out Text text
         );
-        text.text = "Increased Flashlight";
-        toggle.isOn = false;
+        text.text = "Skip dialogues";
+        toggle.isOn = SkipDialogues.Enabled;
         toggle.onValueChanged.AddListener(
             (value) =>
             {
-                FlashlightIncreaser.Toggle();
+                SkipDialogues.Enabled = value;
             }
         );
     }
+
+    #endregion
+
+    #region SETTINGS_MODS
+
+    private void CreateFpsLimitField()
+    {
+        _fpsLimitRow = UIFactory.CreateHorizontalGroup(
+            ContentRoot,
+            "FpsLimitRow",
+            false,
+            true,
+            true,
+            true,
+            2,
+            new Vector4(2, 2, 2, 2)
+        );
+        UIFactory.SetLayoutElement(
+            _fpsLimitRow,
+            minHeight: 25,
+            minWidth: 200,
+            flexibleHeight: 0,
+            flexibleWidth: 0
+        );
+
+        Text fpsLimitLabel = UIFactory.CreateLabel(
+            _fpsLimitRow,
+            "FpsLimitLabel",
+            "Fps limit:",
+            TextAnchor.MiddleLeft
+        );
+        UIFactory.SetLayoutElement(fpsLimitLabel.gameObject, minWidth: 110, flexibleWidth: 50);
+
+        InputFieldRef fpsLimitField = UIFactory.CreateInputField(
+            _fpsLimitRow,
+            "FpsLimitField",
+            "fps"
+        );
+        UIFactory.SetLayoutElement(
+            fpsLimitField.UIRoot,
+            minHeight: 25,
+            minWidth: 50,
+            flexibleHeight: 0,
+            flexibleWidth: 0
+        );
+
+        fpsLimitField.Text = ConfigManager.FpsLimit.Value.ToString();
+
+        fpsLimitField.OnValueChanged += (value) =>
+        {
+            if (int.TryParse(value, out int fpsLimit))
+            {
+                FpsLimit.SetFpsLimit(fpsLimit);
+            }
+        };
+    }
+
+    #endregion
 
     private void CreateStatusBar()
     {
@@ -186,5 +223,3 @@ public class MainPanel : PanelBase
         );
     }
 }
-
-#endif
