@@ -15,25 +15,34 @@ public static class ConsoleUnlocker
         KappiModCore.Log($"[{nameof(ConsoleUnlocker)}] Initialized");
     }
 
-    private static void OnSceneWasInitialized(int buildIndex, string sceneName)
+    public static void UnlockConsole()
     {
         try
         {
-            switch (sceneName)
+            if (ConsoleMain.liteVersion)
             {
-                case ObjectNames.MAIN_MENU_SCENE:
-                    ConsoleMain.liteVersion = false;
+                ConsoleMain.liteVersion = false;
 
-                    KappiModCore.Log($"[{nameof(ConsoleUnlocker)}] Console successfully unlocked!");
-                    break;
-
-                default:
-                    break;
+                KappiModCore.Log($"[{nameof(ConsoleUnlocker)}] Console successfully unlocked!");
+            }
+            else
+            {
+                KappiModCore.Log($"[{nameof(ConsoleUnlocker)}] Console is already unlocked!");
             }
         }
         catch (Exception e)
         {
             KappiModCore.LogError($"[{nameof(ConsoleUnlocker)}] {e.Message}");
         }
+    }
+
+    private static void OnSceneWasInitialized(int buildIndex, string sceneName)
+    {
+        if (sceneName != ObjectNames.MAIN_MENU_SCENE)
+        {
+            return;
+        }
+
+        UnlockConsole();
     }
 }
