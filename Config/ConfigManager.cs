@@ -9,7 +9,7 @@ public static class ConfigManager
     public static ConfigElement<float> StartupDelayTime { get; private set; } = null!;
     public static ConfigElement<bool> DisableEventSystemOverride { get; private set; } = null!;
     public static ConfigElement<bool> ForceUnlockMouse { get; private set; } = null!;
-    public static ConfigElement<bool> OneHPChallange { get; private set; } = null!;
+    public static ConfigElement<int> FpsLimit { get; private set; } = null!;
 
     public static void Init(ConfigHandler handler)
     {
@@ -38,5 +38,7 @@ public static class ConfigManager
         );
 
         ForceUnlockMouse = new("ForceUnlockMouse", "Force unlock mouse", true);
+
+        FpsLimit = new("FpsLimit", "Fps limit", -1);
     }
 }
