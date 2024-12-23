@@ -20,10 +20,10 @@ namespace KappiMod.Loader.MelonLoader;
 
 public class KappiModeMelonMod : MelonMod, IKappiModLoader
 {
-    public string KappiModFolderDestination => MelonEnvironment.ModsDirectory;
-    public string UnhollowedModulesFolder =>
+    public string KappiModDirectoryDestination => MelonEnvironment.ModsDirectory;
+    public string UnhollowedModulesDirectory =>
         Path.Combine(
-            Path.GetDirectoryName(KappiModFolderDestination) ?? "",
+            Path.GetDirectoryName(KappiModDirectoryDestination) ?? "",
             Path.Combine("MelonLoader", "Il2CppAssemblies")
         );
 
