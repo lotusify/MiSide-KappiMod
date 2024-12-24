@@ -53,7 +53,7 @@ public class MainPanel : PanelBase
 
         CreateStatusBar();
 
-        // OnClosePanelClicked();
+        OnClosePanelClicked();
     }
 
     protected override void OnClosePanelClicked()
@@ -205,6 +205,7 @@ public class MainPanel : PanelBase
             if (int.TryParse(value, out int fpsLimit))
             {
                 FpsLimit.SetFpsLimit(fpsLimit);
+                ConfigManager.FpsLimit.Value = fpsLimit;
             }
         };
     }
