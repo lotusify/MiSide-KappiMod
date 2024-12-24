@@ -9,7 +9,7 @@ namespace KappiMod.Patches;
 
 public static class SkipDialogues
 {
-    private static bool _enabled = true;
+    private static bool _enabled = false;
     public static bool Enabled
     {
         get => _enabled;
@@ -35,40 +35,40 @@ public static class SkipDialogues
     private static class Patch
     {
         [HarmonyPatch(typeof(Dialogue_3DText), "Start")]
-        private static void Prefix(Dialogue_3DText instance)
+        private static void Prefix(Dialogue_3DText __instance)
         {
             if (!Enabled)
             {
                 return;
             }
 
-            ApplySkipDialogueSettings(instance);
+            ApplySkipDialogueSettings(__instance);
         }
 
         [HarmonyPatch(typeof(Dialogue_3DText), "Start")]
-        private static void Postfix(Dialogue_3DText instance)
+        private static void Postfix(Dialogue_3DText __instance)
         {
             if (!Enabled)
             {
                 return;
             }
 
-            ApplySkipDialogueSettings(instance);
+            ApplySkipDialogueSettings(__instance);
         }
 
-        private static void ApplySkipDialogueSettings(Dialogue_3DText instance)
+        private static void ApplySkipDialogueSettings(Dialogue_3DText __instance)
         {
             try
             {
-                instance.dontSubtitles = true;
-                instance.dontVoice = true;
-                instance.timeFinish = 0;
-                instance.timeShow = 0;
-                instance.timePrint = 0;
-                instance.timeSound = 0;
-                instance.textPrint = " ";
+                __instance.dontSubtitles = true;
+                __instance.dontVoice = true;
+                __instance.timeFinish = 0;
+                __instance.timeShow = 0;
+                __instance.timePrint = 0;
+                __instance.timeSound = 0;
+                __instance.textPrint = " ";
 
-                KappiModCore.Log($"[{nameof(SkipDialogues)}] Skipped dialogue: {instance.name}");
+                KappiModCore.Log($"[{nameof(SkipDialogues)}] Skipped dialogue: {__instance.name}");
             }
             catch (Exception e)
             {
