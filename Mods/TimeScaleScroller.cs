@@ -32,6 +32,18 @@ public static class TimeScaleScroller
         KappiModCore.Log($"[{nameof(TimeScaleScroller)}] Initialized");
     }
 
+    public static void SetTimeScale(float timeScale)
+    {
+        Time.timeScale = Mathf.Max(0.0f, timeScale);
+
+        KappiModCore.Log($"[{nameof(TimeScaleScroller)}] TimeScale: {Time.timeScale}");
+    }
+
+    public static void ResetTimeScale()
+    {
+        SetTimeScale(1.0f);
+    }
+
     private static void OnUpdate()
     {
         if (!_enabled)
@@ -60,16 +72,5 @@ public static class TimeScaleScroller
         {
             SetTimeScale(Mathf.Approximately(Time.timeScale, 1.0f) ? 0.0f : 1.0f);
         }
-    }
-
-    private static void SetTimeScale(float timeScale)
-    {
-        Time.timeScale = Mathf.Max(0.0f, timeScale);
-        KappiModCore.Log($"[{nameof(TimeScaleScroller)}] TimeScale: {Time.timeScale}");
-    }
-
-    private static void ResetTimeScale()
-    {
-        SetTimeScale(1.0f);
     }
 }

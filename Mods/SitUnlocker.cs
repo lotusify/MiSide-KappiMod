@@ -32,20 +32,7 @@ public static class SitUnlocker
         KappiModCore.Log($"[{nameof(SitUnlocker)}] Initialized");
     }
 
-    private static void OnUpdate()
-    {
-        if (!_enabled)
-        {
-            return;
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            SetPlayerSitState(true);
-        }
-    }
-
-    private static void SetPlayerSitState(bool value)
+    public static void SetPlayerSitState(bool value)
     {
         try
         {
@@ -58,6 +45,19 @@ public static class SitUnlocker
         catch (Exception e)
         {
             KappiModCore.LogError($"[{nameof(SitUnlocker)}] {e.Message}");
+        }
+    }
+
+    private static void OnUpdate()
+    {
+        if (!_enabled)
+        {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            SetPlayerSitState(true);
         }
     }
 }

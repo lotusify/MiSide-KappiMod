@@ -45,19 +45,6 @@ public static class FlashlightIncreaser
         KappiModCore.Log($"[{nameof(FlashlightIncreaser)}] Initialized");
     }
 
-    private static void OnUpdate()
-    {
-        if (!_enabled)
-        {
-            return;
-        }
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            Toggle();
-        }
-    }
-
     public static bool Toggle()
     {
         _isFlashlightEnabled = !_isFlashlightEnabled;
@@ -75,6 +62,19 @@ public static class FlashlightIncreaser
                 + (_isFlashlightEnabled ? "increased" : "restored")
         );
         return _isFlashlightEnabled;
+    }
+
+    private static void OnUpdate()
+    {
+        if (!_enabled)
+        {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Toggle();
+        }
     }
 
     private static void ActivateFlashlightFeatures()

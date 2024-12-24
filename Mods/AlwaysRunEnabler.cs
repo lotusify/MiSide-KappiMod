@@ -30,20 +30,7 @@ public static class AlwaysRunEnabler
         KappiModCore.Log($"[{nameof(AlwaysRunEnabler)}] Initialized");
     }
 
-    private static void OnUpdate()
-    {
-        if (!_enabled)
-        {
-            return;
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            SetPlayerRunState(true);
-        }
-    }
-
-    private static void SetPlayerRunState(bool value)
+    public static void SetPlayerRunState(bool value)
     {
         try
         {
@@ -56,6 +43,19 @@ public static class AlwaysRunEnabler
         catch (Exception e)
         {
             KappiModCore.LogError($"[{nameof(AlwaysRunEnabler)}] {e.Message}");
+        }
+    }
+
+    private static void OnUpdate()
+    {
+        if (!_enabled)
+        {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            SetPlayerRunState(true);
         }
     }
 }
