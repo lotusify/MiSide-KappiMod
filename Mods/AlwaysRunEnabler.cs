@@ -1,3 +1,4 @@
+using KappiMod.Config;
 using UnityEngine;
 #if ML
 using Il2Cpp;
@@ -9,17 +10,14 @@ namespace KappiMod.Mods;
 
 public static class AlwaysRunEnabler
 {
-    private static bool _enabled = true;
     public static bool Enabled
     {
-        get => _enabled;
+        get => ConfigManager.AlwaysRunEnabler.Value;
         set
         {
-            _enabled = value;
+            ConfigManager.AlwaysRunEnabler.Value = value;
 
-            KappiModCore.Log(
-                $"[{nameof(AlwaysRunEnabler)}] " + (_enabled ? "Enabled" : "Disabled")
-            );
+            KappiModCore.Log($"[{nameof(AlwaysRunEnabler)}] " + (value ? "Enabled" : "Disabled"));
         }
     }
 
@@ -48,7 +46,7 @@ public static class AlwaysRunEnabler
 
     private static void OnUpdate()
     {
-        if (!_enabled)
+        if (!Enabled)
         {
             return;
         }

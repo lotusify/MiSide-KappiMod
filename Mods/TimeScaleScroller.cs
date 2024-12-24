@@ -1,3 +1,4 @@
+using KappiMod.Config;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -5,21 +6,18 @@ namespace KappiMod.Mods;
 
 public static class TimeScaleScroller
 {
-    private static bool _enabled = true;
     public static bool Enabled
     {
-        get => _enabled;
+        get => ConfigManager.TimeScaleScroller.Value;
         set
         {
-            _enabled = value;
-            if (!_enabled && !Mathf.Approximately(Time.timeScale, 1.0f))
+            ConfigManager.TimeScaleScroller.Value = value;
+            if (!value && !Mathf.Approximately(Time.timeScale, 1.0f))
             {
                 ResetTimeScale();
             }
 
-            KappiModCore.Log(
-                $"[{nameof(TimeScaleScroller)}] " + (_enabled ? "Enabled" : "Disabled")
-            );
+            KappiModCore.Log($"[{nameof(TimeScaleScroller)}] " + (value ? "Enabled" : "Disabled"));
         }
     }
 
@@ -46,7 +44,7 @@ public static class TimeScaleScroller
 
     private static void OnUpdate()
     {
-        if (!_enabled)
+        if (!Enabled)
         {
             return;
         }

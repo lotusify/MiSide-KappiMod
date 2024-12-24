@@ -1,3 +1,4 @@
+using KappiMod.Config;
 using UnityEngine;
 #if ML
 using Il2Cpp;
@@ -9,19 +10,18 @@ namespace KappiMod.Mods;
 
 public static class SitUnlocker
 {
-    private static bool _enabled = true;
     public static bool Enabled
     {
-        get => _enabled;
+        get => ConfigManager.SitUnlocker.Value;
         set
         {
-            _enabled = value;
-            if (!_enabled)
+            ConfigManager.SitUnlocker.Value = value;
+            if (!value)
             {
                 SetPlayerSitState(false);
             }
 
-            KappiModCore.Log($"[{nameof(SitUnlocker)}] " + (_enabled ? "Enabled" : "Disabled"));
+            KappiModCore.Log($"[{nameof(SitUnlocker)}] " + (value ? "Enabled" : "Disabled"));
         }
     }
 
@@ -50,7 +50,7 @@ public static class SitUnlocker
 
     private static void OnUpdate()
     {
-        if (!_enabled)
+        if (!Enabled)
         {
             return;
         }

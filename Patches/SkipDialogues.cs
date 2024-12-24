@@ -1,4 +1,5 @@
 using HarmonyLib;
+using KappiMod.Config;
 #if ML
 using Il2Cpp;
 #elif BIE
@@ -9,15 +10,14 @@ namespace KappiMod.Patches;
 
 public static class SkipDialogues
 {
-    private static bool _enabled = false;
     public static bool Enabled
     {
-        get => _enabled;
+        get => ConfigManager.SkipDialogues.Value;
         set
         {
-            _enabled = value;
+            ConfigManager.SkipDialogues.Value = value;
 
-            KappiModCore.Log($"[{nameof(SkipDialogues)}] " + (_enabled ? "Enabled" : "Disabled"));
+            KappiModCore.Log($"[{nameof(SkipDialogues)}] " + (value ? "Enabled" : "Disabled"));
         }
     }
 
@@ -54,6 +54,8 @@ public static class SkipDialogues
             }
 
             ApplySkipDialogueSettings(__instance);
+
+            KappiModCore.Log($"[{nameof(SkipDialogues)}] Skipped dialogue: {__instance.name}");
         }
 
         private static void ApplySkipDialogueSettings(Dialogue_3DText __instance)
@@ -67,8 +69,6 @@ public static class SkipDialogues
                 __instance.timePrint = 0;
                 __instance.timeSound = 0;
                 __instance.textPrint = " ";
-
-                KappiModCore.Log($"[{nameof(SkipDialogues)}] Skipped dialogue: {__instance.name}");
             }
             catch (Exception e)
             {

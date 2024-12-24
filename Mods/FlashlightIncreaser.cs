@@ -1,3 +1,4 @@
+using KappiMod.Config;
 using UnityEngine;
 #if ML
 using Il2Cpp;
@@ -13,20 +14,19 @@ public static class FlashlightIncreaser
     private const float FLASHLIGHT_RANGE = 1000.0f;
     private const float FLASHLIGHT_SPOT_ANGLE = 70.0f;
 
-    private static bool _enabled = true;
     public static bool Enabled
     {
-        get => _enabled;
+        get => ConfigManager.FlashlightIncreaser.Value;
         set
         {
-            _enabled = value;
-            if (!_enabled && _isFlashlightEnabled)
+            ConfigManager.FlashlightIncreaser.Value = value;
+            if (!value && _isFlashlightEnabled)
             {
                 Toggle();
             }
 
             KappiModCore.Log(
-                $"[{nameof(FlashlightIncreaser)}] " + (_enabled ? "Enabled" : "Disabled")
+                $"[{nameof(FlashlightIncreaser)}] " + (value ? "Enabled" : "Disabled")
             );
         }
     }
@@ -66,7 +66,7 @@ public static class FlashlightIncreaser
 
     private static void OnUpdate()
     {
-        if (!_enabled)
+        if (!Enabled)
         {
             return;
         }
@@ -102,6 +102,8 @@ public static class FlashlightIncreaser
         {
             KappiModCore.LogError($"[{nameof(FlashlightIncreaser)}] {e.Message}");
 
+            _savedFlashlightRange = NOT_INITIALIZED;
+            _savedFlashlightSpotAngle = NOT_INITIALIZED;
             _isFlashlightEnabled = false;
             _player = null;
         }
@@ -133,6 +135,8 @@ public static class FlashlightIncreaser
         {
             KappiModCore.LogError($"[{nameof(FlashlightIncreaser)}] {e.Message}");
 
+            _savedFlashlightRange = NOT_INITIALIZED;
+            _savedFlashlightSpotAngle = NOT_INITIALIZED;
             _isFlashlightEnabled = false;
             _player = null;
         }
