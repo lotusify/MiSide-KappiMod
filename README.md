@@ -1,5 +1,23 @@
 # _KappiMod_ pack for MiSide
 
+## Оглавление (table of contents)
+
+- [_KappiMod_ pack for MiSide](#kappimod-pack-for-miside)
+  - [Оглавление (table of contents)](#оглавление-table-of-contents)
+  - [Информация о модификациях (English version below)](#информация-о-модификациях-english-version-below)
+    - [Поддерживаемые загрузчики модов](#поддерживаемые-загрузчики-модов)
+    - [Список модификаций](#список-модификаций)
+    - [Список патчей](#список-патчей)
+  - [Установка мод пака](#установка-мод-пака)
+  - [Назначение клавиш](#назначение-клавиш)
+  - [Information about modifications (English)](#information-about-modifications-english)
+    - [Supported mod loaders](#supported-mod-loaders)
+    - [Mod list](#mod-list)
+    - [Patch list](#patch-list)
+  - [Mod pack installation](#mod-pack-installation)
+  - [Key bindings](#key-bindings)
+  - [For developers](#for-developers)
+
 ## Информация о модификациях (English version below)
 
 Последняя версия мод пака доступна [здесь](https://github.com/MrSago/MiSide-KappiMod/releases)
@@ -90,11 +108,11 @@ The installed settings in the GUI of the mod are saved!
 
 ### Patch list
 
-|       Patch        |            Status            |
-| :----------------: | :--------------------------: |
-| Skipping dialouges | **⚠️ may cause softlock ⚠️** |
+|      Patch       |            Status            |
+| :--------------: | :--------------------------: |
+| Dialogue skipper | **⚠️ may cause softlock ⚠️** |
 
-Skipping dialogs is enabled in the GUI (F1 key).
+Skipping dialogues is enabled in the GUI (F1 key).
 
 ## Mod pack installation
 
@@ -121,3 +139,7 @@ Skipping dialogs is enabled in the GUI (F1 key).
 |  LShift + Mouse wheel up   |       Increase time scale by 0.1        |
 | LShift + Mouse wheel down  |       Decrease time scale by 0.1        |
 | LShift + Mouse wheel click |    Switch time scale between 0 and 1    |
+
+## For developers
+
+_Soon..._
