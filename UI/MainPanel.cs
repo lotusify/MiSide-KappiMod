@@ -143,11 +143,11 @@ public class MainPanel : PanelBase
             out Text text
         );
         text.text = "Skip dialogues";
-        toggle.isOn = SkipDialogues.Enabled;
+        toggle.isOn = DialogueSkipper.Enabled;
         toggle.onValueChanged.AddListener(
             (value) =>
             {
-                SkipDialogues.Enabled = value;
+                DialogueSkipper.Enabled = value;
             }
         );
     }

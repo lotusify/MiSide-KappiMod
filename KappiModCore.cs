@@ -65,7 +65,7 @@ public static class KappiModCore
 
     private static void InitPatches()
     {
-        SkipDialogues.Init();
+        DialogueSkipper.Init();
     }
 
     #region LOGGING
