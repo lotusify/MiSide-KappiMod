@@ -1,5 +1,7 @@
+using System.Text;
 using HarmonyLib;
 using KappiMod.Config;
+using UnityEngine.SceneManagement;
 #if ML
 using Il2Cpp;
 #elif BIE
@@ -7,6 +9,9 @@ using BepInEx.IL2CPP;
 #endif
 
 namespace KappiMod.Patches;
+
+using DialogueMapping = Dictionary<string, int>;
+using DialogueSceneMappings = Dictionary<string, Dictionary<string, int>>;
 
 public static class DialogueSkipper
 {
@@ -23,47 +28,33 @@ public static class DialogueSkipper
 
     private static HarmonyLib.Harmony _harmony = null!;
 
-    private static readonly Dictionary<string, List<int>> _ignoredDialoguesId = new()
+    private static readonly DialogueSceneMappings _ignoredDialogues = new()
     {
         {
-            "Player 1",
-            new() { 71 }
+            "Scene 7 - Backrooms",
+            new DialogueMapping { { "KindMita 1 [Продолжает]", 203 }, { "KindMita 2", 204 } }
         },
         {
-            "Player 2",
-            new() { 72 }
+            "Scene 17 - Dreamer",
+            new DialogueMapping
+            {
+                { "Mita 3", 74 },
+                { "Mita 4", 75 },
+                { "Mita 5", 76 },
+                { "Player 7", 100 },
+                { "Player 8", 101 },
+                { "Mita 1(Clone)", 106 },
+                { "Mita 2(Clone)", 105 },
+                { "Mita 3(Clone)", 104 },
+            }
         },
         {
-            "Player 4",
-            new() { 71 }
+            "Scene 14 - MobilePlayer",
+            new DialogueMapping { { "Player 6", 121 }, { "Mita 1 [Шепотом]", 123 } }
         },
         {
-            "Player 5",
-            new() { 72 }
-        },
-        {
-            "Player 6",
-            new() { 121 }
-        },
-        {
-            "Mita 1 [Шепотом]",
-            new() { 123 }
-        },
-        {
-            "Mita 2",
-            new() { 124 }
-        },
-        {
-            "Mita 3",
-            new() { 74, 125, 117 }
-        },
-        {
-            "Mita 4",
-            new() { 75, 118 }
-        },
-        {
-            "Mita 5",
-            new() { 76, 119 }
+            "Scene 15 - BasementAndDeath",
+            new DialogueMapping { { "Player 1", 68 }, { "Player 2", 69 } }
         },
     };
 
@@ -97,27 +88,37 @@ public static class DialogueSkipper
                 return;
             }
 
+            StringBuilder sb = new();
+            string objectName = __instance.name;
+            string activeSceneName = SceneManager.GetActiveScene().name;
+            int indexString = __instance.indexString;
             string text = __instance.textPrint;
 
             if (
-                _ignoredDialoguesId.ContainsKey(__instance.name)
-                && _ignoredDialoguesId[__instance.name].Contains(__instance.indexString)
+                _ignoredDialogues.ContainsKey(activeSceneName)
+                && _ignoredDialogues[activeSceneName].ContainsKey(objectName)
+                && _ignoredDialogues[activeSceneName][objectName] == indexString
             )
             {
-                KappiModCore.LogWarning(
-                    $"[{nameof(DialogueSkipper)}] Ignored dialouge: {__instance.name}"
-                );
-                KappiModCore.LogWarning($"[{nameof(DialogueSkipper)}] Text: {text}");
+                sb.AppendLine("\n===============================================");
+                sb.AppendLine($"[{nameof(DialogueSkipper)}] Ignored dialouge: {objectName}");
+                sb.AppendLine($"[{nameof(DialogueSkipper)}] Scene name: {activeSceneName}");
+                sb.AppendLine($"[{nameof(DialogueSkipper)}] Index string: {indexString}");
+                sb.AppendLine($"[{nameof(DialogueSkipper)}] Text: {text}");
+                sb.AppendLine("===============================================");
+                KappiModCore.LogWarning(sb.ToString());
                 return;
             }
 
             ApplySkipDialogueSettings(__instance);
 
-            KappiModCore.Log($"----------------------------------------");
-            KappiModCore.Log($"[{nameof(DialogueSkipper)}] Skipped dialogue: {__instance.name}");
-            KappiModCore.Log($"[{nameof(DialogueSkipper)}] Index: {__instance.indexString}");
-            KappiModCore.Log($"[{nameof(DialogueSkipper)}] Text: {text}");
-            KappiModCore.Log($"----------------------------------------");
+            sb.AppendLine("\n-----------------------------------------------");
+            sb.AppendLine($"[{nameof(DialogueSkipper)}] Skipped dialogue: {objectName}");
+            sb.AppendLine($"[{nameof(DialogueSkipper)}] Scene name: {activeSceneName}");
+            sb.AppendLine($"[{nameof(DialogueSkipper)}] Index string: {indexString}");
+            sb.AppendLine($"[{nameof(DialogueSkipper)}] Text: {text}");
+            sb.AppendLine("-----------------------------------------------");
+            KappiModCore.Log(sb.ToString());
         }
 
         private static void ApplySkipDialogueSettings(Dialogue_3DText __instance)
