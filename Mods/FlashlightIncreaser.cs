@@ -19,7 +19,6 @@ public static class FlashlightIncreaser
         get => ConfigManager.FlashlightIncreaser.Value;
         set
         {
-            ConfigManager.FlashlightIncreaser.Value = value;
             if (!value && _isFlashlightEnabled)
             {
                 Toggle();
@@ -28,6 +27,8 @@ public static class FlashlightIncreaser
             KappiModCore.Log(
                 $"[{nameof(FlashlightIncreaser)}] " + (value ? "Enabled" : "Disabled")
             );
+
+            ConfigManager.FlashlightIncreaser.Value = value;
         }
     }
 
@@ -89,6 +90,7 @@ public static class FlashlightIncreaser
                 );
 
                 _isFlashlightEnabled = false;
+                ResetSavedFlashlightState();
                 return;
             }
 
@@ -102,10 +104,9 @@ public static class FlashlightIncreaser
         {
             KappiModCore.LogError($"[{nameof(FlashlightIncreaser)}] {e.Message}");
 
-            _savedFlashlightRange = NOT_INITIALIZED;
-            _savedFlashlightSpotAngle = NOT_INITIALIZED;
             _isFlashlightEnabled = false;
             _player = null;
+            ResetSavedFlashlightState();
         }
     }
 
@@ -127,18 +128,22 @@ public static class FlashlightIncreaser
                 _player.flashLightSpotAngle = _savedFlashlightSpotAngle;
                 _player = null;
 
-                _savedFlashlightRange = NOT_INITIALIZED;
-                _savedFlashlightSpotAngle = NOT_INITIALIZED;
+                ResetSavedFlashlightState();
             }
         }
         catch (Exception e)
         {
             KappiModCore.LogError($"[{nameof(FlashlightIncreaser)}] {e.Message}");
 
-            _savedFlashlightRange = NOT_INITIALIZED;
-            _savedFlashlightSpotAngle = NOT_INITIALIZED;
             _isFlashlightEnabled = false;
             _player = null;
+            ResetSavedFlashlightState();
         }
+    }
+
+    private static void ResetSavedFlashlightState()
+    {
+        _savedFlashlightRange = NOT_INITIALIZED;
+        _savedFlashlightSpotAngle = NOT_INITIALIZED;
     }
 }

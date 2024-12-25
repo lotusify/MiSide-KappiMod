@@ -11,13 +11,14 @@ public static class TimeScaleScroller
         get => ConfigManager.TimeScaleScroller.Value;
         set
         {
-            ConfigManager.TimeScaleScroller.Value = value;
             if (!value && !Mathf.Approximately(Time.timeScale, 1.0f))
             {
                 ResetTimeScale();
             }
 
             KappiModCore.Log($"[{nameof(TimeScaleScroller)}] " + (value ? "Enabled" : "Disabled"));
+
+            ConfigManager.TimeScaleScroller.Value = value;
         }
     }
 

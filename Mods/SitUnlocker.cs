@@ -15,13 +15,14 @@ public static class SitUnlocker
         get => ConfigManager.SitUnlocker.Value;
         set
         {
-            ConfigManager.SitUnlocker.Value = value;
             if (!value)
             {
                 SetPlayerSitState(false);
             }
 
             KappiModCore.Log($"[{nameof(SitUnlocker)}] " + (value ? "Enabled" : "Disabled"));
+
+            ConfigManager.SitUnlocker.Value = value;
         }
     }
 

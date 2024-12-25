@@ -15,9 +15,9 @@ public static class SkipDialogues
         get => ConfigManager.SkipDialogues.Value;
         set
         {
-            ConfigManager.SkipDialogues.Value = value;
-
             KappiModCore.Log($"[{nameof(SkipDialogues)}] " + (value ? "Enabled" : "Disabled"));
+
+            ConfigManager.SkipDialogues.Value = value;
         }
     }
 

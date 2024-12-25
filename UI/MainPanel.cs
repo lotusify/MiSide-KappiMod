@@ -1,4 +1,3 @@
-using KappiMod.Config;
 using KappiMod.Mods;
 using KappiMod.Patches;
 using KappiMod.Properties;
@@ -198,14 +197,13 @@ public class MainPanel : PanelBase
             flexibleWidth: 0
         );
 
-        fpsLimitField.Text = ConfigManager.FpsLimit.Value.ToString();
+        fpsLimitField.Text = FpsLimit.CurrentFpsLimit.ToString();
 
         fpsLimitField.OnValueChanged += (value) =>
         {
             if (int.TryParse(value, out int fpsLimit))
             {
                 FpsLimit.SetFpsLimit(fpsLimit);
-                ConfigManager.FpsLimit.Value = fpsLimit;
             }
         };
     }

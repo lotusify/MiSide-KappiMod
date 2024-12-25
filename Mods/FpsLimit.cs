@@ -5,6 +5,12 @@ namespace KappiMod.Mods;
 
 public static class FpsLimit
 {
+    public static int CurrentFpsLimit
+    {
+        get => ConfigManager.FpsLimit.Value;
+        private set => ConfigManager.FpsLimit.Value = value;
+    }
+
     public static void Init()
     {
         KappiModCore.Loader.SceneWasInitialized += OnSceneWasInitialized;
@@ -14,11 +20,19 @@ public static class FpsLimit
 
     public static void SetFpsLimit(int fpsLimit)
     {
+        if (CurrentFpsLimit == fpsLimit)
+        {
+            return;
+        }
+
         try
         {
-            Application.targetFrameRate = fpsLimit;
+            int fps = fpsLimit < 0 ? -1 : Mathf.Max(10, fpsLimit);
+            Application.targetFrameRate = fps;
 
-            KappiModCore.Log($"[{nameof(FpsLimit)}] FPS limit set to {fpsLimit}");
+            KappiModCore.Log($"[{nameof(FpsLimit)}] FPS limit set to {fps}");
+
+            CurrentFpsLimit = fps;
         }
         catch (Exception e)
         {

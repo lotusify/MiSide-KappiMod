@@ -15,9 +15,9 @@ public static class AlwaysRunEnabler
         get => ConfigManager.AlwaysRunEnabler.Value;
         set
         {
-            ConfigManager.AlwaysRunEnabler.Value = value;
-
             KappiModCore.Log($"[{nameof(AlwaysRunEnabler)}] " + (value ? "Enabled" : "Disabled"));
+
+            ConfigManager.AlwaysRunEnabler.Value = value;
         }
     }
 
