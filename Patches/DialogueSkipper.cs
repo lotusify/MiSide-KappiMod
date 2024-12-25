@@ -12,12 +12,12 @@ public static class DialogueSkipper
 {
     public static bool Enabled
     {
-        get => ConfigManager.SkipDialogues.Value;
+        get => ConfigManager.DialogueSkipper.Value;
         set
         {
             KappiModCore.Log($"[{nameof(DialogueSkipper)}] " + (value ? "Enabled" : "Disabled"));
 
-            ConfigManager.SkipDialogues.Value = value;
+            ConfigManager.DialogueSkipper.Value = value;
         }
     }
 
