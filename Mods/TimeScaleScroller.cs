@@ -11,9 +11,17 @@ public static class TimeScaleScroller
         get => ConfigManager.TimeScaleScroller.Value;
         set
         {
-            if (!value && !Mathf.Approximately(Time.timeScale, 1.0f))
+            if (value)
             {
-                ResetTimeScale();
+                KappiModCore.Loader.Update += OnUpdate;
+            }
+            else
+            {
+                KappiModCore.Loader.Update -= OnUpdate;
+                if (!Mathf.Approximately(Time.timeScale, 1.0f))
+                {
+                    ResetTimeScale();
+                }
             }
 
             KappiModCore.Log($"[{nameof(TimeScaleScroller)}] " + (value ? "Enabled" : "Disabled"));
@@ -26,7 +34,10 @@ public static class TimeScaleScroller
 
     public static void Init()
     {
-        KappiModCore.Loader.Update += OnUpdate;
+        if (Enabled)
+        {
+            KappiModCore.Loader.Update += OnUpdate;
+        }
 
         KappiModCore.Log($"[{nameof(TimeScaleScroller)}] Initialized");
     }
@@ -45,11 +56,6 @@ public static class TimeScaleScroller
 
     private static void OnUpdate()
     {
-        if (!Enabled)
-        {
-            return;
-        }
-
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             _shiftPressed = true;

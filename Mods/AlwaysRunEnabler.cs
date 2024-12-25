@@ -15,6 +15,15 @@ public static class AlwaysRunEnabler
         get => ConfigManager.AlwaysRunEnabler.Value;
         set
         {
+            if (value)
+            {
+                KappiModCore.Loader.Update += OnUpdate;
+            }
+            else
+            {
+                KappiModCore.Loader.Update -= OnUpdate;
+            }
+
             KappiModCore.Log($"[{nameof(AlwaysRunEnabler)}] " + (value ? "Enabled" : "Disabled"));
 
             ConfigManager.AlwaysRunEnabler.Value = value;
@@ -23,7 +32,10 @@ public static class AlwaysRunEnabler
 
     public static void Init()
     {
-        KappiModCore.Loader.Update += OnUpdate;
+        if (Enabled)
+        {
+            KappiModCore.Loader.Update += OnUpdate;
+        }
 
         KappiModCore.Log($"[{nameof(AlwaysRunEnabler)}] Initialized");
     }
@@ -46,11 +58,6 @@ public static class AlwaysRunEnabler
 
     private static void OnUpdate()
     {
-        if (!Enabled)
-        {
-            return;
-        }
-
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             SetPlayerRunState(true);

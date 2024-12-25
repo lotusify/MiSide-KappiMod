@@ -15,8 +15,13 @@ public static class SitUnlocker
         get => ConfigManager.SitUnlocker.Value;
         set
         {
-            if (!value)
+            if (value)
             {
+                KappiModCore.Loader.Update += OnUpdate;
+            }
+            else
+            {
+                KappiModCore.Loader.Update -= OnUpdate;
                 SetPlayerSitState(false);
             }
 
@@ -28,7 +33,10 @@ public static class SitUnlocker
 
     public static void Init()
     {
-        KappiModCore.Loader.Update += OnUpdate;
+        if (Enabled)
+        {
+            KappiModCore.Loader.Update += OnUpdate;
+        }
 
         KappiModCore.Log($"[{nameof(SitUnlocker)}] Initialized");
     }
@@ -51,11 +59,6 @@ public static class SitUnlocker
 
     private static void OnUpdate()
     {
-        if (!Enabled)
-        {
-            return;
-        }
-
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             SetPlayerSitState(true);
