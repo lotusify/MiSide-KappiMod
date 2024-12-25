@@ -20,11 +20,6 @@ public static class FpsLimit
 
     public static void SetFpsLimit(int fpsLimit)
     {
-        if (CurrentFpsLimit == fpsLimit)
-        {
-            return;
-        }
-
         try
         {
             int fps = fpsLimit < 0 ? -1 : Mathf.Max(10, fpsLimit);
