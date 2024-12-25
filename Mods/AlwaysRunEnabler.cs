@@ -1,3 +1,4 @@
+using KappiMod.Config;
 using UnityEngine;
 #if ML
 using Il2Cpp;
@@ -9,41 +10,37 @@ namespace KappiMod.Mods;
 
 public static class AlwaysRunEnabler
 {
-    private static bool _enabled = true;
     public static bool Enabled
     {
-        get => _enabled;
+        get => ConfigManager.AlwaysRunEnabler.Value;
         set
         {
-            _enabled = value;
+            if (value)
+            {
+                KappiModCore.Loader.Update += OnUpdate;
+            }
+            else
+            {
+                KappiModCore.Loader.Update -= OnUpdate;
+            }
 
-            KappiModCore.Log(
-                $"[{nameof(AlwaysRunEnabler)}] " + (_enabled ? "Enabled" : "Disabled")
-            );
+            KappiModCore.Log($"[{nameof(AlwaysRunEnabler)}] " + (value ? "Enabled" : "Disabled"));
+
+            ConfigManager.AlwaysRunEnabler.Value = value;
         }
     }
 
     public static void Init()
     {
-        KappiModCore.Loader.Update += OnUpdate;
+        if (Enabled)
+        {
+            KappiModCore.Loader.Update += OnUpdate;
+        }
 
         KappiModCore.Log($"[{nameof(AlwaysRunEnabler)}] Initialized");
     }
 
-    private static void OnUpdate()
-    {
-        if (!_enabled)
-        {
-            return;
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            SetPlayerRunState(true);
-        }
-    }
-
-    private static void SetPlayerRunState(bool value)
+    public static void SetPlayerRunState(bool value)
     {
         try
         {
@@ -56,6 +53,14 @@ public static class AlwaysRunEnabler
         catch (Exception e)
         {
             KappiModCore.LogError($"[{nameof(AlwaysRunEnabler)}] {e.Message}");
+        }
+    }
+
+    private static void OnUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            SetPlayerRunState(true);
         }
     }
 }

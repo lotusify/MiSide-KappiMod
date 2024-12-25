@@ -16,7 +16,7 @@
   <!--Configurations-->
   <PropertyGroup Condition="'$(Configuration)'=='ML'">
     <OutputPath>bin\Release</OutputPath>
-    <DefineConstants>ML,UI</DefineConstants>
+    <DefineConstants>ML</DefineConstants>
     <AssemblyName>KappiMod.MelonLoader</AssemblyName>
   </PropertyGroup>
 
@@ -35,6 +35,9 @@
     <Reference Include="$(ProjectDir)Assemblies\MelonLoader\*.dll">
       <Private>false</Private>
     </Reference>
+    <Reference Include="$(ProjectDir)Assemblies\UserLibs\UniverseLib.ML.IL2CPP.Interop.dll" >
+      <Private>false</Private>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup Condition="'$(Configuration)'=='BIE'">
@@ -44,13 +47,7 @@
     <Reference Include="$(ProjectDir)Assemblies\BepInEx\*.dll">
       <Private>false</Private>
     </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="$(ProjectDir)Assemblies\*">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Content>
-    <Reference Include="$(ProjectDir)Assemblies\UserLibs\*.dll" >
+    <Reference Include="$(ProjectDir)Assemblies\UserLibs\UniverseLib.BIE.IL2CPP.Interop.dll" >
       <Private>false</Private>
     </Reference>
   </ItemGroup>

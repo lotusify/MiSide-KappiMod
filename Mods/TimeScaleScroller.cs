@@ -1,3 +1,4 @@
+using KappiMod.Config;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -5,21 +6,27 @@ namespace KappiMod.Mods;
 
 public static class TimeScaleScroller
 {
-    private static bool _enabled = true;
     public static bool Enabled
     {
-        get => _enabled;
+        get => ConfigManager.TimeScaleScroller.Value;
         set
         {
-            _enabled = value;
-            if (!_enabled && !Mathf.Approximately(Time.timeScale, 1.0f))
+            if (value)
             {
-                ResetTimeScale();
+                KappiModCore.Loader.Update += OnUpdate;
+            }
+            else
+            {
+                KappiModCore.Loader.Update -= OnUpdate;
+                if (!Mathf.Approximately(Time.timeScale, 1.0f))
+                {
+                    ResetTimeScale();
+                }
             }
 
-            KappiModCore.Log(
-                $"[{nameof(TimeScaleScroller)}] " + (_enabled ? "Enabled" : "Disabled")
-            );
+            KappiModCore.Log($"[{nameof(TimeScaleScroller)}] " + (value ? "Enabled" : "Disabled"));
+
+            ConfigManager.TimeScaleScroller.Value = value;
         }
     }
 
@@ -27,18 +34,28 @@ public static class TimeScaleScroller
 
     public static void Init()
     {
-        KappiModCore.Loader.Update += OnUpdate;
+        if (Enabled)
+        {
+            KappiModCore.Loader.Update += OnUpdate;
+        }
 
         KappiModCore.Log($"[{nameof(TimeScaleScroller)}] Initialized");
     }
 
+    public static void SetTimeScale(float timeScale)
+    {
+        Time.timeScale = Mathf.Max(0.0f, timeScale);
+
+        KappiModCore.Log($"[{nameof(TimeScaleScroller)}] TimeScale: {Time.timeScale}");
+    }
+
+    public static void ResetTimeScale()
+    {
+        SetTimeScale(1.0f);
+    }
+
     private static void OnUpdate()
     {
-        if (!_enabled)
-        {
-            return;
-        }
-
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             _shiftPressed = true;
@@ -60,16 +77,5 @@ public static class TimeScaleScroller
         {
             SetTimeScale(Mathf.Approximately(Time.timeScale, 1.0f) ? 0.0f : 1.0f);
         }
-    }
-
-    private static void SetTimeScale(float timeScale)
-    {
-        Time.timeScale = Mathf.Max(0.0f, timeScale);
-        KappiModCore.Log($"[{nameof(TimeScaleScroller)}] TimeScale: {Time.timeScale}");
-    }
-
-    private static void ResetTimeScale()
-    {
-        SetTimeScale(1.0f);
     }
 }

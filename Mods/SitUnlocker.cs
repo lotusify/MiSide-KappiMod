@@ -1,3 +1,4 @@
+using KappiMod.Config;
 using UnityEngine;
 #if ML
 using Il2Cpp;
@@ -9,43 +10,38 @@ namespace KappiMod.Mods;
 
 public static class SitUnlocker
 {
-    private static bool _enabled = true;
     public static bool Enabled
     {
-        get => _enabled;
+        get => ConfigManager.SitUnlocker.Value;
         set
         {
-            _enabled = value;
-            if (!_enabled)
+            if (value)
             {
+                KappiModCore.Loader.Update += OnUpdate;
+            }
+            else
+            {
+                KappiModCore.Loader.Update -= OnUpdate;
                 SetPlayerSitState(false);
             }
 
-            KappiModCore.Log($"[{nameof(SitUnlocker)}] " + (_enabled ? "Enabled" : "Disabled"));
+            KappiModCore.Log($"[{nameof(SitUnlocker)}] " + (value ? "Enabled" : "Disabled"));
+
+            ConfigManager.SitUnlocker.Value = value;
         }
     }
 
     public static void Init()
     {
-        KappiModCore.Loader.Update += OnUpdate;
+        if (Enabled)
+        {
+            KappiModCore.Loader.Update += OnUpdate;
+        }
 
         KappiModCore.Log($"[{nameof(SitUnlocker)}] Initialized");
     }
 
-    private static void OnUpdate()
-    {
-        if (!_enabled)
-        {
-            return;
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            SetPlayerSitState(true);
-        }
-    }
-
-    private static void SetPlayerSitState(bool value)
+    public static void SetPlayerSitState(bool value)
     {
         try
         {
@@ -58,6 +54,14 @@ public static class SitUnlocker
         catch (Exception e)
         {
             KappiModCore.LogError($"[{nameof(SitUnlocker)}] {e.Message}");
+        }
+    }
+
+    private static void OnUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            SetPlayerSitState(true);
         }
     }
 }

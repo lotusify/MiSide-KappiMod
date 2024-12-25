@@ -1,3 +1,4 @@
+using KappiMod.Config;
 using UnityEngine;
 #if ML
 using Il2Cpp;
@@ -13,49 +14,45 @@ public static class FlashlightIncreaser
     private const float FLASHLIGHT_RANGE = 1000.0f;
     private const float FLASHLIGHT_SPOT_ANGLE = 70.0f;
 
-    private static bool _enabled = true;
     public static bool Enabled
     {
-        get => _enabled;
+        get => ConfigManager.FlashlightIncreaser.Value;
         set
         {
-            _enabled = value;
-            if (!_enabled && _isFlashlightEnabled)
+            if (value)
             {
-                Toggle();
+                KappiModCore.Loader.Update += OnUpdate;
+            }
+            else
+            {
+                KappiModCore.Loader.Update -= OnUpdate;
+                if (_isFlashlightEnabled)
+                {
+                    Toggle();
+                }
             }
 
             KappiModCore.Log(
-                $"[{nameof(FlashlightIncreaser)}] " + (_enabled ? "Enabled" : "Disabled")
+                $"[{nameof(FlashlightIncreaser)}] " + (value ? "Enabled" : "Disabled")
             );
+
+            ConfigManager.FlashlightIncreaser.Value = value;
         }
     }
 
     private static bool _isFlashlightEnabled = false;
-
     private static WorldPlayer? _player;
-
     private static float _savedFlashlightRange = NOT_INITIALIZED;
     private static float _savedFlashlightSpotAngle = NOT_INITIALIZED;
 
     public static void Init()
     {
-        KappiModCore.Loader.Update += OnUpdate;
+        if (Enabled)
+        {
+            KappiModCore.Loader.Update += OnUpdate;
+        }
 
         KappiModCore.Log($"[{nameof(FlashlightIncreaser)}] Initialized");
-    }
-
-    private static void OnUpdate()
-    {
-        if (!_enabled)
-        {
-            return;
-        }
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            Toggle();
-        }
     }
 
     public static bool Toggle()
@@ -77,6 +74,14 @@ public static class FlashlightIncreaser
         return _isFlashlightEnabled;
     }
 
+    private static void OnUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Toggle();
+        }
+    }
+
     private static void ActivateFlashlightFeatures()
     {
         try
@@ -89,6 +94,7 @@ public static class FlashlightIncreaser
                 );
 
                 _isFlashlightEnabled = false;
+                ResetSavedFlashlightState();
                 return;
             }
 
@@ -104,6 +110,7 @@ public static class FlashlightIncreaser
 
             _isFlashlightEnabled = false;
             _player = null;
+            ResetSavedFlashlightState();
         }
     }
 
@@ -111,23 +118,20 @@ public static class FlashlightIncreaser
     {
         try
         {
-            if (_player is not null)
+            if (
+                _player is null
+                || _savedFlashlightRange <= NOT_INITIALIZED
+                || _savedFlashlightSpotAngle <= NOT_INITIALIZED
+            )
             {
-                if (
-                    _savedFlashlightRange <= NOT_INITIALIZED
-                    || _savedFlashlightSpotAngle <= NOT_INITIALIZED
-                )
-                {
-                    return;
-                }
-
-                _player.flashLightRange = _savedFlashlightRange;
-                _player.flashLightSpotAngle = _savedFlashlightSpotAngle;
-                _player = null;
-
-                _savedFlashlightRange = NOT_INITIALIZED;
-                _savedFlashlightSpotAngle = NOT_INITIALIZED;
+                return;
             }
+
+            _player.flashLightRange = _savedFlashlightRange;
+            _player.flashLightSpotAngle = _savedFlashlightSpotAngle;
+            _player = null;
+
+            ResetSavedFlashlightState();
         }
         catch (Exception e)
         {
@@ -135,6 +139,13 @@ public static class FlashlightIncreaser
 
             _isFlashlightEnabled = false;
             _player = null;
+            ResetSavedFlashlightState();
         }
+    }
+
+    private static void ResetSavedFlashlightState()
+    {
+        _savedFlashlightRange = NOT_INITIALIZED;
+        _savedFlashlightSpotAngle = NOT_INITIALIZED;
     }
 }

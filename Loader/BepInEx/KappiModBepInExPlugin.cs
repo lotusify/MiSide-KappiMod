@@ -15,8 +15,9 @@ public class KappiModBepInExPlugin : BasePlugin, IKappiModLoader
 {
     public static KappiModBepInExPlugin Instance = null!;
 
-    public string KappiModFolderDestination => Paths.PluginPath;
-    public string UnhollowedModulesFolder => Path.Combine(Paths.BepInExRootPath, "interop");
+    public string KappiModDirectoryDestination =>
+        Path.Combine(Paths.PluginPath, KappiModCore.MOD_DIRECTORY_NAME);
+    public string UnhollowedModulesDirectory => Path.Combine(Paths.BepInExRootPath, "interop");
 
     private BepInExConfigHandler _configHandler = null!;
     public ConfigHandler ConfigHandler => _configHandler;

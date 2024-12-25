@@ -1,5 +1,23 @@
 # _KappiMod_ pack for MiSide
 
+## Оглавление (table of contents)
+
+- [_KappiMod_ pack for MiSide](#kappimod-pack-for-miside)
+  - [Оглавление (table of contents)](#оглавление-table-of-contents)
+  - [Информация о модификациях (English version below)](#информация-о-модификациях-english-version-below)
+    - [Поддерживаемые загрузчики модов](#поддерживаемые-загрузчики-модов)
+    - [Список модификаций](#список-модификаций)
+    - [Список патчей](#список-патчей)
+  - [Установка мод пака](#установка-мод-пака)
+  - [Назначение клавиш](#назначение-клавиш)
+  - [Information about modifications (English)](#information-about-modifications-english)
+    - [Supported mod loaders](#supported-mod-loaders)
+    - [Mod list](#mod-list)
+    - [Patch list](#patch-list)
+  - [Mod pack installation](#mod-pack-installation)
+  - [Key bindings](#key-bindings)
+  - [For developers](#for-developers)
+
 ## Информация о модификациях (English version below)
 
 Последняя версия мод пака доступна [здесь](https://github.com/MrSago/MiSide-KappiMod/releases)
@@ -11,17 +29,28 @@
 | MelonLoader |    ✅     |
 |   BepInEx   |    ✅     |
 
-### Возможности модификаций
+### Список модификаций
 
-|               Мод               | Статус |
-| :-----------------------------: | :----: |
-| GUI мода (только с MelonLoader) |   ⭕   |
-|    Режим бега всегда включен    |   ✅   |
-|      Разблокировка консоли      |   ✅   |
-|  Увеличение мощности фонарика   |   ✅   |
-|        Возможность лечь         |   ⭕   |
-|    Разблокировка приседания     |   ✅   |
-|       Скроллер time scale       |   ✅   |
+|             Мод              | Статус |
+| :--------------------------: | :----: |
+|           GUI мода           |   ✅   |
+|  Режим бега всегда включен   |   ✅   |
+|    Разблокировка консоли     |   ✅   |
+| Увеличение мощности фонарика |   ✅   |
+|       Возможность лечь       |   ⭕   |
+|  Установка FPS лимита в GUI  |   ✅   |
+|   Разблокировка приседания   |   ✅   |
+|     Скроллер time scale      |   ✅   |
+
+Установленные настройки в GUI мода сохраняются!
+
+### Список патчей
+
+|       Патч       |             Статус              |
+| :--------------: | :-----------------------------: |
+| Пропуск диалогов | **⚠️ может вызвать софтлок ⚠️** |
+
+Пропуск диалогов включается в GUI (клавиша F1).
 
 ## Установка мод пака
 
@@ -45,9 +74,9 @@
 |              F               | Увеличить дальность и мощность фонарика |
 |            LShift            |                   Бег                   |
 |            LCtrl             |               Приседание                |
-| LShift + Колесико Мыши Вверх |       Увеличить time scale на 0.1       |
-| LShift + Колесико Мыши Вниз  |       Уменьшить time scale на 0.1       |
-| LShift + Клик Колесика Мыши  |   Переключить time scale между 0 и 1    |
+| LShift + Колесико мыши вверх |       Увеличить time scale на 0.1       |
+| LShift + Колесико мыши вниз  |       Уменьшить time scale на 0.1       |
+| LShift + Клик колесика мыши  |   Переключить time scale между 0 и 1    |
 
 ---
 
@@ -62,24 +91,35 @@ Latest version of the mod pack is available [here](https://github.com/MrSago/MiS
 | MelonLoader |    ✅     |
 |   BepInEx   |    ✅     |
 
-### Mod features
+### Mod list
 
-|            Mod             | Status |
-| :------------------------: | :----: |
-| Mod GUI (MelonLoader only) |   ⭕   |
-|     Always run enabler     |   ✅   |
-|      Console unlocker      |   ✅   |
-|    Flashlight increaser    |   ✅   |
-|         Lying down         |   ⭕   |
-|        Sit unlocker        |   ✅   |
-|    Time scale scroller     |   ✅   |
+|         Mod          | Status |
+| :------------------: | :----: |
+|       Mod GUI        |   ✅   |
+|  Always run enabler  |   ✅   |
+|   Console unlocker   |   ✅   |
+| Flashlight increaser |   ✅   |
+|      Lying down      |   ⭕   |
+| Set FPS limit in GUI |   ✅   |
+|     Sit unlocker     |   ✅   |
+| Time scale scroller  |   ✅   |
+
+The installed settings in the GUI of the mod are saved!
+
+### Patch list
+
+|      Patch       |            Status            |
+| :--------------: | :--------------------------: |
+| Dialogue skipper | **⚠️ may cause softlock ⚠️** |
+
+Skipping dialogues is enabled in the GUI (F1 key).
 
 ## Mod pack installation
 
 - Install one of the supported mod loaders
 
   - [MelonLoader](https://github.com/LavaGang/MelonLoader/releases)
-    - Just use **installer** with latest version
+    - Just use the latest **installer**
   - [BepInEx](https://github.com/BepInEx/BepInEx/releases)
     - We need **BepInEx-Unity.IL2CPP-win-x64-x.x.x**
 
@@ -96,6 +136,10 @@ Latest version of the mod pack is available [here](https://github.com/MrSago/MiS
 |             F              | Increase flashlight distance and radius |
 |           LShift           |                   Run                   |
 |           LCtrl            |                Sit down                 |
-|  LShift + Mouse Wheel Up   |       Increase time scale by 0.1        |
-| LShift + Mouse Wheel Down  |       Decrease time scale by 0.1        |
-| LShift + Mouse Wheel Click |    Switch time scale between 0 and 1    |
+|  LShift + Mouse wheel up   |       Increase time scale by 0.1        |
+| LShift + Mouse wheel down  |       Decrease time scale by 0.1        |
+| LShift + Mouse wheel click |    Switch time scale between 0 and 1    |
+
+## For developers
+
+_Soon..._

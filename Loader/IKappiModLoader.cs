@@ -4,8 +4,8 @@ namespace KappiMod.Loader;
 
 public interface IKappiModLoader
 {
-    string KappiModFolderDestination { get; }
-    string UnhollowedModulesFolder { get; }
+    string KappiModDirectoryDestination { get; }
+    string UnhollowedModulesDirectory { get; }
 
     ConfigHandler ConfigHandler { get; }
 
