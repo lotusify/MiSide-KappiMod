@@ -46,11 +46,12 @@ public class KappiModBepInExPlugin : BasePlugin, IKappiModLoader
         Instance = this;
         _configHandler = new BepInExConfigHandler();
         HarmonyInstance.PatchAll(typeof(BepInExPatches));
-        IL2CPPChainloader.AddUnityComponent(typeof(BepInExEventProxy));
+        IL2CPPChainloader.AddUnityComponent(typeof(KappiModBepInExEventProxy));
         KappiModCore.Init(this);
     }
 
-    private class BepInExEventProxy : MonoBehaviour
+    // Need to use unique class name to avoid conflicts with other mods
+    private class KappiModBepInExEventProxy : MonoBehaviour
     {
         private void Update() => Instance?.OnUpdate();
     }
