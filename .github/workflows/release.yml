@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     tags:
-      - 'v*.*.*'
+      - "v*.*.*"
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
       - name: Set up .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '6.x.x'
+          dotnet-version: "6.x.x"
 
       - name: Restore dependencies
         run: dotnet restore
@@ -26,6 +26,9 @@ jobs:
 
       - name: Build BIE configuration
         run: dotnet build --configuration BIE --no-restore
+
+      - name: Create artifacts directory
+        run: mkdir -p ./artifacts
 
       - name: Create ML zip
         run: zip -j ./artifacts/KappiMod.MelonLoader.zip ./bin/Release/KappiMod.MelonLoader.dll
