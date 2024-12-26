@@ -60,8 +60,14 @@
     - Просто используйте **установщик** последней версии
   - [BepInEx](https://github.com/BepInEx/BepInEx/releases)
     - Нам нужен **BepInEx-Unity.IL2CPP-win-x64-x.x.x**
+    - Распакуйте содержимое архива в папку с игрой
 
-- Извлечь файлы из архива с [релизом](https://github.com/MrSago/MiSide-KappiMod/releases) в папку с игрой
+- Скачать [последнюю версию мода](https://github.com/MrSago/MiSide-KappiMod/releases) **под нужный загрузчик:**
+
+  - KappiMod.MelonLoader.zip - для MelonLoader
+  - KappiMod.BepInEx.zip - для BepInEx
+
+- Извлечь файлы из архива в папку с игрой
 
 - Веселитесь
 
@@ -122,8 +128,14 @@ Skipping dialogues is enabled in the GUI (F1 key).
     - Just use the latest **installer**
   - [BepInEx](https://github.com/BepInEx/BepInEx/releases)
     - We need **BepInEx-Unity.IL2CPP-win-x64-x.x.x**
+    - Unzip the contents of the archive into the game folder
 
-- Extract the files from the [release](https://github.com/MrSago/MiSide-KappiMod/releases) archive in the game directory
+- Download [the latest version of the mod](https://github.com/MrSago/MiSide-KappiMod/releases) **for the required loader:**
+
+  - KappiMod.MelonLoader.zip - for MelonLoader
+  - KappiMod.BepInEx.zip - for BepInEx
+
+- Extract files from the archive into the game folder
 
 - Have fun
 
