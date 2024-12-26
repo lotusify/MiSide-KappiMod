@@ -132,8 +132,8 @@ Skipping dialogues is enabled in the GUI (F1 key).
 
 - Download [the latest version of the mod](https://github.com/MrSago/MiSide-KappiMod/releases) **for the required loader:**
 
-  - KappiMod.MelonLoader.zip - for MelonLoader
-  - KappiMod.BepInEx.zip - for BepInEx
+  - KappiMod.MelonLoader.zip - for the MelonLoader
+  - KappiMod.BepInEx.zip - for the BepInEx
 
 - Extract files from the archive into the game folder
 
