@@ -31,11 +31,24 @@ jobs:
       - name: Create artifacts directory
         run: mkdir -p ./artifacts
 
+      - name: Create ML directory structure
+        run: |
+          mkdir -p ./artifacts/ML/Mods
+          mkdir -p ./artifacts/ML/UserLibs
+          cp ./bin/Release/KappiMod.MelonLoader.dll ./artifacts/ML/Mods/
+          cp ./Assemblies/UserLibs/UniverseLib.ML.IL2CPP.Interop.dll ./artifacts/ML/UserLibs/
+
+      - name: Create BIE directory structure
+        run: |
+          mkdir -p ./artifacts/BIE/BepInEx/plugins/KappiMod
+          cp ./bin/Release/KappiMod.BepInEx.dll ./artifacts/BIE/BepInEx/plugins/KappiMod/
+          cp ./Assemblies/UserLibs/UniverseLib.BIE.IL2CPP.Interop.dll ./artifacts/BIE/BepInEx/plugins/KappiMod/
+
       - name: Create ML zip
-        run: zip -j ./artifacts/KappiMod.MelonLoader.zip ./bin/Release/KappiMod.MelonLoader.dll
+        run: zip -r ./artifacts/KappiMod.MelonLoader.zip -j ./artifacts/ML
 
       - name: Create BIE zip
-        run: zip -j ./artifacts/KappiMod.BepInEx.zip ./bin/Release/KappiMod.BepInEx.dll
+        run: zip -r ./artifacts/KappiMod.BepInEx.zip -j ./artifacts/BIE
 
       - name: Create release
         id: create_release
