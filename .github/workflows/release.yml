@@ -10,6 +10,9 @@ jobs:
     permissions: write-all
     runs-on: ubuntu-latest
 
+    env:
+      MOD_NAME: KappiMod
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -35,20 +38,24 @@ jobs:
         run: |
           mkdir -p ./artifacts/ML/Mods
           mkdir -p ./artifacts/ML/UserLibs
-          cp ./bin/Release/KappiMod.MelonLoader.dll ./artifacts/ML/Mods/
+          cp ./bin/Release/${{ env.MOD_NAME }}.MelonLoader.dll ./artifacts/ML/Mods/
           cp ./Assemblies/UserLibs/UniverseLib.ML.IL2CPP.Interop.dll ./artifacts/ML/UserLibs/
 
       - name: Create BIE directory structure
         run: |
-          mkdir -p ./artifacts/BIE/BepInEx/plugins/KappiMod
-          cp ./bin/Release/KappiMod.BepInEx.dll ./artifacts/BIE/BepInEx/plugins/KappiMod/
-          cp ./Assemblies/UserLibs/UniverseLib.BIE.IL2CPP.Interop.dll ./artifacts/BIE/BepInEx/plugins/KappiMod/
+          mkdir -p ./artifacts/BIE/BepInEx/plugins/${{ env.MOD_NAME }}
+          cp ./bin/Release/${{ env.MOD_NAME }}.BepInEx.dll ./artifacts/BIE/BepInEx/plugins/${{ env.MOD_NAME }}/
+          cp ./Assemblies/UserLibs/UniverseLib.BIE.IL2CPP.Interop.dll ./artifacts/BIE/BepInEx/plugins/${{ env.MOD_NAME }}/
 
       - name: Create ML zip
-        run: zip -r ./artifacts/KappiMod.MelonLoader.zip ./artifacts/ML
+        run: |
+          cd ./artifacts/ML
+          zip -r ../../${{ env.MOD_NAME }}.MelonLoader.zip ./*
 
       - name: Create BIE zip
-        run: zip -r ./artifacts/KappiMod.BepInEx.zip ./artifacts/BIE
+        run: |
+          cd ./artifacts/BIE
+          zip -r ../../${{ env.MOD_NAME }}.BepInEx.zip ./*
 
       - name: Create release
         id: create_release
@@ -57,7 +64,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          release_name: ${{ env.MOD_NAME }} ${{ github.ref }}
           draft: false
           prerelease: false
 
@@ -67,8 +74,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./artifacts/KappiMod.MelonLoader.zip
-          asset_name: KappiMod.MelonLoader.zip
+          asset_path: ./${{ env.MOD_NAME }}.MelonLoader.zip
+          asset_name: ${{ env.MOD_NAME }}.MelonLoader.zip
           asset_content_type: application/zip
 
       - name: Upload BIE release asset
@@ -77,6 +84,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./artifacts/KappiMod.BepInEx.zip
-          asset_name: KappiMod.BepInEx.zip
+          asset_path: ./${{ env.MOD_NAME }}.BepInEx.zip
+          asset_name: ${{ env.MOD_NAME }}.BepInEx.zip
           asset_content_type: application/zip
