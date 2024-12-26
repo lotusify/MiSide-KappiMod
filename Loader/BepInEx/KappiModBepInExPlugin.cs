@@ -15,15 +15,15 @@ public class KappiModBepInExPlugin : BasePlugin, IKappiModLoader
 {
     public static KappiModBepInExPlugin Instance = null!;
 
+    private static readonly Harmony _harmony = new(BuildInfo.GUID);
+    public Harmony HarmonyInstance => _harmony;
+
     public string KappiModDirectoryDestination =>
         Path.Combine(Paths.PluginPath, KappiModCore.MOD_DIRECTORY_NAME);
     public string UnhollowedModulesDirectory => Path.Combine(Paths.BepInExRootPath, "interop");
 
     private BepInExConfigHandler _configHandler = null!;
     public ConfigHandler ConfigHandler => _configHandler;
-
-    private static readonly Harmony _harmony = new(BuildInfo.GUID);
-    public Harmony HarmonyInstance => _harmony;
 
     public event Action? Update;
     public event Action<int, string>? SceneWasLoaded;
