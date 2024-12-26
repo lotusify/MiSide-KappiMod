@@ -11,12 +11,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up .NET
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '6.0.x'
+          dotnet-version: '6.x.x'
 
       - name: Restore dependencies
         run: dotnet restore
@@ -27,17 +27,11 @@ jobs:
       - name: Build BIE configuration
         run: dotnet build --configuration BIE --no-restore
 
-      - name: Pack ML configuration
-        run: dotnet pack --configuration ML --no-build --output ./artifacts
-
-      - name: Pack BIE configuration
-        run: dotnet pack --configuration BIE --no-build --output ./artifacts
-
       - name: Create ML zip
-        run: zip -j ./artifacts/KappiMod.MelonLoader.zip ./artifacts/KappiMod.MelonLoader.nupkg
+        run: zip -j ./artifacts/KappiMod.MelonLoader.zip ./bin/Release/KappiMod.MelonLoader.dll
 
       - name: Create BIE zip
-        run: zip -j ./artifacts/KappiMod.BepInEx.zip ./artifacts/KappiMod.BepInEx.nupkg
+        run: zip -j ./artifacts/KappiMod.BepInEx.zip ./bin/Release/KappiMod.BepInEx.dll
 
       - name: Create release
         id: create_release
