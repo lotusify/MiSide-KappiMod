@@ -1,3 +1,19 @@
-dotnet build -c BIE
+@echo off
+setlocal EnableDelayedExpansion
 
-copy /Y ".\bin\Release\KappiMod.BepInEx.dll" "C:\Program Files (x86)\Steam\steamapps\common\MiSide\BepInEx\plugins\KappiMod\KappiMod.BepInEx.dll"
+dotnet build -c BIE
+if errorlevel 1 goto :error
+
+set "SOURCE=.\bin\Release"
+set "DEST=C:\Program Files (x86)\Steam\steamapps\common\MiSide\BepInEx\plugins\KappiMod"
+set "FILE=KappiMod.BepInEx.dll"
+
+robocopy "%SOURCE%" "%DEST%" "%FILE%" /NFL /NDL /NJH /NJS
+if errorlevel 8 goto :error
+
+echo Build and copy completed successfully
+exit /b 0
+
+:error
+echo Failed with error #%errorlevel%.
+exit /b %errorlevel%
