@@ -9,5 +9,6 @@ internal static class BuildInfo
     public const string VERSION = "0.1.2";
     public const string GAMEVERSION = null;
     public const string DOWNLOADLINK = "https://github.com/MrSago/MiSide-KappiMod";
-    public const string GUID = "com.kappi.mod";
+    public const string PACKAGE = "com.kappimod.miside";
+    public const string GUID = "15061c17-4bee-4c06-ad89-18a1002c9099";
 }
