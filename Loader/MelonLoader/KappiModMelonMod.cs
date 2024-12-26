@@ -14,7 +14,7 @@ using KappiMod.Config;
 [assembly: MelonOptionalDependencies("UniverseLib")]
 [assembly: MelonGame("AIHASTO", "MiSideFull")]
 [assembly: MelonColor(255, 196, 21, 169)]
-[assembly: MelonAuthorColor(255, 33, 164, 176)]
+[assembly: MelonAuthorColor(255, 80, 20, 146)]
 
 namespace KappiMod.Loader.MelonLoader;
 
