@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace KappiMod.Loader.BepInEx;
 
-[BepInPlugin(BuildInfo.GUID, BuildInfo.NAME, BuildInfo.VERSION)]
+[BepInPlugin(BuildInfo.PACKAGE, BuildInfo.NAME, BuildInfo.VERSION)]
 public class KappiModBepInExPlugin : BasePlugin, IKappiModLoader
 {
     public static KappiModBepInExPlugin Instance = null!;
