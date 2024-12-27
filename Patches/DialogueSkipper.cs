@@ -60,7 +60,7 @@ public static class DialogueSkipper
 
     public static void Init()
     {
-        _harmony = new("com.kappi.mod.skipdialogues");
+        _harmony = new("com.dialogueskipper.miside");
         _harmony.PatchAll(typeof(Patch));
 
         KappiModCore.Log($"[{nameof(DialogueSkipper)}] Initialized");
