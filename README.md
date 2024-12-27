@@ -34,12 +34,12 @@
 |             Мод              | Статус |
 | :--------------------------: | :----: |
 |           GUI мода           |   ✅   |
-|  Режим бега всегда включен   |   ✅   |
 |    Разблокировка консоли     |   ✅   |
 | Увеличение мощности фонарика |   ✅   |
 |       Возможность лечь       |   ⭕   |
 |  Установка FPS лимита в GUI  |   ✅   |
 |   Разблокировка приседания   |   ✅   |
+|  Разблокировка режима бега   |   ✅   |
 |     Скроллер time scale      |   ✅   |
 
 Установленные настройки в GUI мода сохраняются!
@@ -73,16 +73,16 @@
 
 ## Назначение клавиш
 
-|           Клавиша            |                Действие                 |
-| :--------------------------: | :-------------------------------------: |
-|              F1              |    Открыть GUI мода _(в разработке)_    |
-|     **~** (удерживание)      |      Открыть внутриигровую консоль      |
-|              F               | Увеличить дальность и мощность фонарика |
-|            LShift            |                   Бег                   |
-|            LCtrl             |               Приседание                |
-| LShift + Колесико мыши вверх |       Увеличить time scale на 0.1       |
-| LShift + Колесико мыши вниз  |       Уменьшить time scale на 0.1       |
-| LShift + Клик колесика мыши  |   Переключить time scale между 0 и 1    |
+|           Клавиша            |               Действие                |
+| :--------------------------: | :-----------------------------------: |
+|              F1              |   Открыть GUI мода _(в разработке)_   |
+|     **~** (удерживание)      |     Открыть внутриигровую консоль     |
+|              F               | Увеличить дальность и радиус фонарика |
+|            LShift            |                  Бег                  |
+|            LCtrl             |              Приседание               |
+| LShift + Колесико мыши вверх |      Увеличить time scale на 0.1      |
+| LShift + Колесико мыши вниз  |      Уменьшить time scale на 0.1      |
+| LShift + Клик колесика мыши  |  Переключить time scale между 0 и 1   |
 
 ---
 
@@ -102,12 +102,12 @@ Latest version of the mod pack is available [here](https://github.com/MrSago/MiS
 |         Mod          | Status |
 | :------------------: | :----: |
 |       Mod GUI        |   ✅   |
-|  Always run enabler  |   ✅   |
 |   Console unlocker   |   ✅   |
 | Flashlight increaser |   ✅   |
 |      Lying down      |   ⭕   |
 | Set FPS limit in GUI |   ✅   |
 |     Sit unlocker     |   ✅   |
+|   Sprint unlocker    |   ✅   |
 | Time scale scroller  |   ✅   |
 
 The installed settings in the GUI of the mod are saved!
@@ -146,7 +146,7 @@ Skipping dialogues is enabled in the GUI (F1 key).
 |             F1             |    Open mod GUI _(work in progress)_    |
 |        **~** (hold)        |          Open in game console           |
 |             F              | Increase flashlight distance and radius |
-|           LShift           |                   Run                   |
+|           LShift           |                 Sprint                  |
 |           LCtrl            |                Sit down                 |
 |  LShift + Mouse wheel up   |       Increase time scale by 0.1        |
 | LShift + Mouse wheel down  |       Decrease time scale by 0.1        |

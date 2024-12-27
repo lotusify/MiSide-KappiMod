@@ -55,7 +55,7 @@ public static class KappiModCore
 
     private static void InitMods()
     {
-        AlwaysRunEnabler.Init();
+        SprintUnlocker.Init();
         ConsoleUnlocker.Init();
         FlashlightIncreaser.Init();
         FpsLimit.Init();

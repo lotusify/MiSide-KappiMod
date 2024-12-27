@@ -35,7 +35,7 @@ public class MainPanel : PanelBase
             TextAnchor.MiddleLeft,
             fontSize: 18
         );
-        CreateAlwaysRunEnablerToggle();
+        CreateSprintUnlockerToggle();
         CreateFlashlightIncreaserToggle();
         CreateSitUnlockerToggle();
         CreateTimeScaleScrollerToggle();
@@ -62,20 +62,20 @@ public class MainPanel : PanelBase
 
     #region TOGGLE_MODS
 
-    private void CreateAlwaysRunEnablerToggle()
+    private void CreateSprintUnlockerToggle()
     {
         _ = UIFactory.CreateToggle(
             ContentRoot,
-            "AlwaysRunEnablerToggle",
+            "SprintUnlockerToggle",
             out Toggle toggle,
             out Text text
         );
-        text.text = "Always run enabler";
-        toggle.isOn = AlwaysRunEnabler.Enabled;
+        text.text = "Sprint unlocker";
+        toggle.isOn = SprintUnlocker.Enabled;
         toggle.onValueChanged.AddListener(
             (value) =>
             {
-                AlwaysRunEnabler.Enabled = value;
+                SprintUnlocker.Enabled = value;
             }
         );
     }

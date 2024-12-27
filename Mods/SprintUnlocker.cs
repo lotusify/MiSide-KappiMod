@@ -8,11 +8,11 @@ using BepInEx.IL2CPP;
 
 namespace KappiMod.Mods;
 
-public static class AlwaysRunEnabler
+public static class SprintUnlocker
 {
     public static bool Enabled
     {
-        get => ConfigManager.AlwaysRunEnabler.Value;
+        get => ConfigManager.SprintUnlocker.Value;
         set
         {
             if (value)
@@ -24,9 +24,9 @@ public static class AlwaysRunEnabler
                 KappiModCore.Loader.Update -= OnUpdate;
             }
 
-            KappiModCore.Log($"[{nameof(AlwaysRunEnabler)}] " + (value ? "Enabled" : "Disabled"));
+            KappiModCore.Log($"[{nameof(SprintUnlocker)}] " + (value ? "Enabled" : "Disabled"));
 
-            ConfigManager.AlwaysRunEnabler.Value = value;
+            ConfigManager.SprintUnlocker.Value = value;
         }
     }
 
@@ -37,7 +37,7 @@ public static class AlwaysRunEnabler
             KappiModCore.Loader.Update += OnUpdate;
         }
 
-        KappiModCore.Log($"[{nameof(AlwaysRunEnabler)}] Initialized");
+        KappiModCore.Log($"[{nameof(SprintUnlocker)}] Initialized");
     }
 
     public static void SetPlayerRunState(bool value)
@@ -52,7 +52,7 @@ public static class AlwaysRunEnabler
         }
         catch (Exception e)
         {
-            KappiModCore.LogError($"[{nameof(AlwaysRunEnabler)}] {e.Message}");
+            KappiModCore.LogError($"[{nameof(SprintUnlocker)}] {e.Message}");
         }
     }
 
