@@ -1,9 +1,9 @@
 # _KappiMod_ pack for MiSide
 
-## Оглавление (table of contents)
+## Оглавление (Table of contents)
 
 - [_KappiMod_ pack for MiSide](#kappimod-pack-for-miside)
-  - [Оглавление (table of contents)](#оглавление-table-of-contents)
+  - [Оглавление (Table of contents)](#оглавление-table-of-contents)
   - [Информация о модификациях (English version below)](#информация-о-модификациях-english-version-below)
     - [Поддерживаемые загрузчики модов](#поддерживаемые-загрузчики-модов)
     - [Список модификаций](#список-модификаций)
@@ -20,7 +20,7 @@
 
 ## Информация о модификациях (English version below)
 
-Последняя версия мод пака доступна [здесь](https://github.com/MrSago/MiSide-KappiMod/releases)
+Последняя версия мод пака доступна [здесь](https://github.com/MrSago/MiSide-KappiMod/releases).
 
 ### Поддерживаемые загрузчики модов
 
@@ -31,16 +31,20 @@
 
 ### Список модификаций
 
-|             Мод              | Статус |
-| :--------------------------: | :----: |
-|           GUI мода           |   ✅   |
-|    Разблокировка консоли     |   ✅   |
-| Увеличение мощности фонарика |   ✅   |
-|       Возможность лечь       |   ⭕   |
-|  Установка FPS лимита в GUI  |   ✅   |
-|   Разблокировка приседания   |   ✅   |
-|    Разблокировка спринта     |   ✅   |
-|     Скроллер time scale      |   ✅   |
+Названия кликабельны, если есть необходимость поставить моды или патчи из списков отдельно.
+
+|                                          Мод                                          | Статус |
+| :-----------------------------------------------------------------------------------: | :----: |
+|                                       GUI мода                                        |   ✅   |
+|                                 Разблокировка консоли                                 |   ✅   |
+| [Увеличение мощности фонарика](https://github.com/MrSago/MiSide-Flashlight-Increaser) |   ✅   |
+|                                   Возможность лечь                                    |   ⭕   |
+|                              Установка FPS лимита в GUI                               |   ✅   |
+|       [Разблокировка приседания](https://github.com/MrSago/MiSide-Sit-Unlocker)       |   ✅   |
+|       [Разблокировка спринта](https://github.com/MrSago/MiSide-Sprint-Unlocker)       |   ✅   |
+|                                  Скроллер time scale                                  |   ✅   |
+
+> _Примечание: ставить отдельно модификации можно, но ставить их с мод паком не имеет смысла, т.к. они замещают функционал друг друга._
 
 Установленные настройки в GUI мода сохраняются!
 
@@ -48,7 +52,7 @@
 
 |       Патч       |             Статус              |
 | :--------------: | :-----------------------------: |
-| Пропуск диалогов | **⚠️ может вызвать софтлок ⚠️** |
+| Пропуск диалогов | **⚠️ МОЖЕТ ВЫЗВАТЬ СОФТЛОК ⚠️** |
 
 Пропуск диалогов включается в GUI (клавиша F1).
 
@@ -75,7 +79,7 @@
 
 |           Клавиша            |               Действие                |
 | :--------------------------: | :-----------------------------------: |
-|              F1              |   Открыть GUI мода _(в разработке)_   |
+|              F1              |           Открыть GUI мода            |
 |     **~** (удерживание)      |     Открыть внутриигровую консоль     |
 |              F               | Увеличить дальность и радиус фонарика |
 |            LShift            |                  Бег                  |
@@ -88,7 +92,7 @@
 
 ## Information about modifications (English)
 
-Latest version of the mod pack is available [here](https://github.com/MrSago/MiSide-KappiMod/releases)
+Latest version of the mod pack is available [here](https://github.com/MrSago/MiSide-KappiMod/releases).
 
 ### Supported mod loaders
 
@@ -99,16 +103,20 @@ Latest version of the mod pack is available [here](https://github.com/MrSago/MiS
 
 ### Mod list
 
-|         Mod          | Status |
-| :------------------: | :----: |
-|       Mod GUI        |   ✅   |
-|   Console unlocker   |   ✅   |
-| Flashlight increaser |   ✅   |
-|      Lying down      |   ⭕   |
-| Set FPS limit in GUI |   ✅   |
-|     Sit unlocker     |   ✅   |
-|   Sprint unlocker    |   ✅   |
-| Time scale scroller  |   ✅   |
+The names are clickable if there is a need to install mods or patches from the lists separately.
+
+|                                      Mod                                      | Status |
+| :---------------------------------------------------------------------------: | :----: |
+|                                    Mod GUI                                    |   ✅   |
+|                               Console unlocker                                |   ✅   |
+| [Flashlight increaser](https://github.com/MrSago/MiSide-Flashlight-Increaser) |   ✅   |
+|                                  Lying down                                   |   ⭕   |
+|                             Set FPS limit in GUI                              |   ✅   |
+|         [Sit unlocker](https://github.com/MrSago/MiSide-Sit-Unlocker)         |   ✅   |
+|      [Sprint unlocker](https://github.com/MrSago/MiSide-Sprint-Unlocker)      |   ✅   |
+|                              Time scale scroller                              |   ✅   |
+
+> _Note: you can install modifications separately, but installing them with a mod pack does not make sense, because they replace each other's functionality._
 
 The installed settings in the GUI of the mod are saved!
 
@@ -116,13 +124,13 @@ The installed settings in the GUI of the mod are saved!
 
 |      Patch       |            Status            |
 | :--------------: | :--------------------------: |
-| Dialogue skipper | **⚠️ may cause softlock ⚠️** |
+| Dialogue skipper | **⚠️ MAY CAUSE SOFTLOCK ⚠️** |
 
 Skipping dialogues is enabled in the GUI (F1 key).
 
 ## Mod pack installation
 
-- Install one of the supported mod loaders
+- Install one of the supported mod loaders:
 
   - [MelonLoader](https://github.com/LavaGang/MelonLoader/releases)
     - Just use the latest version **installer**
@@ -130,7 +138,7 @@ Skipping dialogues is enabled in the GUI (F1 key).
     - We need **BepInEx-Unity.IL2CPP-win-x64-6.x.x** (6th version)
     - Unzip the contents of the archive into the game folder
 
-- Download [the latest version of the mod](https://github.com/MrSago/MiSide-KappiMod/releases) **for the required loader:**
+- Download [the latest version of the mod](https://github.com/MrSago/MiSide-KappiMod/releases) for **the required loader**:
 
   - KappiMod.MelonLoader.zip - for the MelonLoader
   - KappiMod.BepInEx.zip - for the BepInEx
@@ -143,7 +151,7 @@ Skipping dialogues is enabled in the GUI (F1 key).
 
 |            Key             |                 Action                  |
 | :------------------------: | :-------------------------------------: |
-|             F1             |    Open mod GUI _(work in progress)_    |
+|             F1             |              Open mod GUI               |
 |        **~** (hold)        |          Open in game console           |
 |             F              | Increase flashlight distance and radius |
 |           LShift           |                 Sprint                  |
