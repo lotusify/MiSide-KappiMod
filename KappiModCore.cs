@@ -55,11 +55,11 @@ public static class KappiModCore
 
     private static void InitMods()
     {
-        SprintUnlocker.Init();
         ConsoleUnlocker.Init();
         FlashlightIncreaser.Init();
         FpsLimit.Init();
         SitUnlocker.Init();
+        SprintUnlocker.Init();
         TimeScaleScroller.Init();
     }
 
