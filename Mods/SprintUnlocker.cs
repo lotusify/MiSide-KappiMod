@@ -22,6 +22,10 @@ public static class SprintUnlocker
             else
             {
                 KappiModCore.Loader.Update -= OnUpdate;
+                if (IsPlayerMoveValid())
+                {
+                    SetPlayerRunState(false);
+                }
             }
 
             KappiModCore.Log(value ? "Enabled" : "Disabled");
@@ -29,6 +33,8 @@ public static class SprintUnlocker
             ConfigManager.SprintUnlocker.Value = value;
         }
     }
+
+    private static PlayerMove? _playerMove;
 
     public static void Init()
     {
@@ -44,8 +50,8 @@ public static class SprintUnlocker
     {
         try
         {
-            PlayerMove? playerMove = UnityEngine.Object.FindObjectOfType<PlayerMove>();
-            if (playerMove is not null)
+            PlayerMove? playerMove = GetPlayerMove();
+            if (playerMove != null)
             {
                 playerMove.canRun = value;
             }
@@ -53,6 +59,8 @@ public static class SprintUnlocker
         catch (Exception e)
         {
             KappiModCore.LogError(e.Message);
+
+            _playerMove = null;
         }
     }
 
@@ -62,5 +70,19 @@ public static class SprintUnlocker
         {
             SetPlayerRunState(true);
         }
+    }
+
+    private static PlayerMove? GetPlayerMove()
+    {
+        if (!IsPlayerMoveValid())
+        {
+            _playerMove = GameObject.Find("Player")?.GetComponent<PlayerMove>();
+        }
+        return _playerMove;
+    }
+
+    private static bool IsPlayerMoveValid()
+    {
+        return _playerMove != null && _playerMove.gameObject != null;
     }
 }
