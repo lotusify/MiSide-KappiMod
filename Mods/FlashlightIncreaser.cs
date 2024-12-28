@@ -82,7 +82,7 @@ public static class FlashlightIncreaser
         try
         {
             _player = UnityEngine.Object.FindObjectOfType<WorldPlayer>();
-            if (_player is null)
+            if (_player == null)
             {
                 KappiModCore.LogError($"Object {nameof(WorldPlayer)} not found!");
 
@@ -109,7 +109,7 @@ public static class FlashlightIncreaser
         try
         {
             if (
-                _player is null
+                _player == null
                 || _savedFlashlightRange <= NOT_INITIALIZED
                 || _savedFlashlightSpotAngle <= NOT_INITIALIZED
             )
