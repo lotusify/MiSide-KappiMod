@@ -20,7 +20,7 @@ public static class TimeScaleScroller
                 KappiModCore.Loader.Update -= OnUpdate;
                 if (!Mathf.Approximately(Time.timeScale, 1.0f))
                 {
-                    ResetTimeScale();
+                    SetTimeScale(1.0f);
                 }
             }
 
@@ -29,8 +29,6 @@ public static class TimeScaleScroller
             ConfigManager.TimeScaleScroller.Value = value;
         }
     }
-
-    private static bool _shiftPressed = false;
 
     public static void Init()
     {
@@ -56,33 +54,22 @@ public static class TimeScaleScroller
         }
     }
 
-    public static void ResetTimeScale()
-    {
-        SetTimeScale(1.0f);
-    }
-
     private static void OnUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            _shiftPressed = true;
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            _shiftPressed = false;
-        }
-
-        if (_shiftPressed && Input.mouseScrollDelta.y > 0.0f)
-        {
-            SetTimeScale(Time.timeScale + 0.1f);
-        }
-        else if (_shiftPressed && Input.mouseScrollDelta.y < 0.0f)
-        {
-            SetTimeScale(Time.timeScale - 0.1f);
-        }
-        else if (_shiftPressed && Input.GetMouseButtonDown((int)MouseButton.MiddleMouse))
-        {
-            SetTimeScale(Mathf.Approximately(Time.timeScale, 1.0f) ? 0.0f : 1.0f);
+            if (Input.mouseScrollDelta.y > 0.0f)
+            {
+                SetTimeScale(Time.timeScale + 0.1f);
+            }
+            else if (Input.mouseScrollDelta.y < 0.0f)
+            {
+                SetTimeScale(Time.timeScale - 0.1f);
+            }
+            else if (Input.GetMouseButtonDown((int)MouseButton.MiddleMouse))
+            {
+                SetTimeScale(Mathf.Approximately(Time.timeScale, 1.0f) ? 0.0f : 1.0f);
+            }
         }
     }
 }
