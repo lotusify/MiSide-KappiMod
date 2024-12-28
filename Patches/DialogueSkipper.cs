@@ -20,7 +20,7 @@ public static class DialogueSkipper
         get => ConfigManager.DialogueSkipper.Value;
         set
         {
-            KappiModCore.Log($"[{nameof(DialogueSkipper)}] " + (value ? "Enabled" : "Disabled"));
+            KappiModCore.Log(value ? "Enabled" : "Disabled");
 
             ConfigManager.DialogueSkipper.Value = value;
         }
@@ -63,7 +63,7 @@ public static class DialogueSkipper
         _harmony = new("com.dialogueskipper.miside");
         _harmony.PatchAll(typeof(Patch));
 
-        KappiModCore.Log($"[{nameof(DialogueSkipper)}] Initialized");
+        KappiModCore.Log("Initialized");
     }
 
     [HarmonyPatch]
@@ -88,7 +88,6 @@ public static class DialogueSkipper
                 return;
             }
 
-            StringBuilder sb = new();
             string objectName = __instance.name;
             string activeSceneName = SceneManager.GetActiveScene().name;
             int indexString = __instance.indexString;
@@ -100,25 +99,13 @@ public static class DialogueSkipper
                 && _ignoredDialogues[activeSceneName][objectName] == indexString
             )
             {
-                sb.AppendLine("\n===============================================");
-                sb.AppendLine($"[{nameof(DialogueSkipper)}] Ignored dialouge: {objectName}");
-                sb.AppendLine($"[{nameof(DialogueSkipper)}] Scene name: {activeSceneName}");
-                sb.AppendLine($"[{nameof(DialogueSkipper)}] Index string: {indexString}");
-                sb.AppendLine($"[{nameof(DialogueSkipper)}] Text: {text}");
-                sb.AppendLine("===============================================");
-                KappiModCore.LogWarning(sb.ToString());
+                LogDialogueInfo(objectName, activeSceneName, indexString, text, separator: '=');
                 return;
             }
 
             ApplySkipDialogueSettings(__instance);
 
-            sb.AppendLine("\n-----------------------------------------------");
-            sb.AppendLine($"[{nameof(DialogueSkipper)}] Skipped dialogue: {objectName}");
-            sb.AppendLine($"[{nameof(DialogueSkipper)}] Scene name: {activeSceneName}");
-            sb.AppendLine($"[{nameof(DialogueSkipper)}] Index string: {indexString}");
-            sb.AppendLine($"[{nameof(DialogueSkipper)}] Text: {text}");
-            sb.AppendLine("-----------------------------------------------");
-            KappiModCore.Log(sb.ToString());
+            LogDialogueInfo(objectName, activeSceneName, indexString, text);
         }
 
         private static void ApplySkipDialogueSettings(Dialogue_3DText __instance)
@@ -135,8 +122,33 @@ public static class DialogueSkipper
             }
             catch (Exception e)
             {
-                KappiModCore.LogError($"[{nameof(DialogueSkipper)}] {e.Message}");
+                KappiModCore.LogError(e.Message);
             }
+        }
+
+        private static void LogDialogueInfo(
+            string objectName,
+            string activeSceneName,
+            int indexString,
+            string text,
+            char separator = '-'
+        )
+        {
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                return;
+            }
+
+            StringBuilder sb = new();
+            sb.Append('\n');
+            sb.AppendLine(new string(separator, 50));
+            sb.AppendLine($"Dialogue: {objectName}");
+            sb.AppendLine($"Scene name: {activeSceneName}");
+            sb.AppendLine($"Index string: {indexString}");
+            sb.AppendLine($"Text: {text}");
+            sb.AppendLine(new string(separator, 50));
+
+            KappiModCore.Log(sb.ToString());
         }
     }
 }

@@ -24,7 +24,7 @@ public static class SprintUnlocker
                 KappiModCore.Loader.Update -= OnUpdate;
             }
 
-            KappiModCore.Log($"[{nameof(SprintUnlocker)}] " + (value ? "Enabled" : "Disabled"));
+            KappiModCore.Log(value ? "Enabled" : "Disabled");
 
             ConfigManager.SprintUnlocker.Value = value;
         }
@@ -37,7 +37,7 @@ public static class SprintUnlocker
             KappiModCore.Loader.Update += OnUpdate;
         }
 
-        KappiModCore.Log($"[{nameof(SprintUnlocker)}] Initialized");
+        KappiModCore.Log("Initialized");
     }
 
     public static void SetPlayerRunState(bool value)
@@ -52,7 +52,7 @@ public static class SprintUnlocker
         }
         catch (Exception e)
         {
-            KappiModCore.LogError($"[{nameof(SprintUnlocker)}] {e.Message}");
+            KappiModCore.LogError(e.Message);
         }
     }
 

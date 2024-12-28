@@ -25,7 +25,7 @@ public static class SitUnlocker
                 SetPlayerSitState(false);
             }
 
-            KappiModCore.Log($"[{nameof(SitUnlocker)}] " + (value ? "Enabled" : "Disabled"));
+            KappiModCore.Log(value ? "Enabled" : "Disabled");
 
             ConfigManager.SitUnlocker.Value = value;
         }
@@ -38,7 +38,7 @@ public static class SitUnlocker
             KappiModCore.Loader.Update += OnUpdate;
         }
 
-        KappiModCore.Log($"[{nameof(SitUnlocker)}] Initialized");
+        KappiModCore.Log("Initialized");
     }
 
     public static void SetPlayerSitState(bool value)
@@ -53,7 +53,7 @@ public static class SitUnlocker
         }
         catch (Exception e)
         {
-            KappiModCore.LogError($"[{nameof(SitUnlocker)}] {e.Message}");
+            KappiModCore.LogError(e.Message);
         }
     }
 
