@@ -86,8 +86,7 @@ public static class FlashlightIncreaser
             {
                 KappiModCore.LogError($"Object {nameof(WorldPlayer)} not found!");
 
-                _isFlashlightEnabled = false;
-                ResetSavedFlashlightState();
+                ResetState();
                 return;
             }
 
@@ -101,9 +100,7 @@ public static class FlashlightIncreaser
         {
             KappiModCore.LogError(e.Message);
 
-            _isFlashlightEnabled = false;
-            _player = null;
-            ResetSavedFlashlightState();
+            ResetState();
         }
     }
 
@@ -122,22 +119,21 @@ public static class FlashlightIncreaser
 
             _player.flashLightRange = _savedFlashlightRange;
             _player.flashLightSpotAngle = _savedFlashlightSpotAngle;
-            _player = null;
 
-            ResetSavedFlashlightState();
+            ResetState();
         }
         catch (Exception e)
         {
             KappiModCore.LogError(e.Message);
 
-            _isFlashlightEnabled = false;
-            _player = null;
-            ResetSavedFlashlightState();
+            ResetState();
         }
     }
 
-    private static void ResetSavedFlashlightState()
+    private static void ResetState()
     {
+        _player = null;
+        _isFlashlightEnabled = false;
         _savedFlashlightRange = NOT_INITIALIZED;
         _savedFlashlightSpotAngle = NOT_INITIALIZED;
     }
