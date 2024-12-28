@@ -24,7 +24,7 @@ public static class TimeScaleScroller
                 }
             }
 
-            KappiModCore.Log($"[{nameof(TimeScaleScroller)}] " + (value ? "Enabled" : "Disabled"));
+            KappiModCore.Log(value ? "Enabled" : "Disabled");
 
             ConfigManager.TimeScaleScroller.Value = value;
         }
@@ -39,14 +39,21 @@ public static class TimeScaleScroller
             KappiModCore.Loader.Update += OnUpdate;
         }
 
-        KappiModCore.Log($"[{nameof(TimeScaleScroller)}] Initialized");
+        KappiModCore.Log("Initialized");
     }
 
     public static void SetTimeScale(float timeScale)
     {
-        Time.timeScale = Mathf.Max(0.0f, timeScale);
+        try
+        {
+            Time.timeScale = Mathf.Max(0.0f, timeScale);
 
-        KappiModCore.Log($"[{nameof(TimeScaleScroller)}] TimeScale: {Time.timeScale}");
+            KappiModCore.Log($"TimeScale: {Time.timeScale}");
+        }
+        catch (Exception e)
+        {
+            KappiModCore.LogError(e.Message);
+        }
     }
 
     public static void ResetTimeScale()

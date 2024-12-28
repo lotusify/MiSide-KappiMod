@@ -12,7 +12,7 @@ public static class ConsoleUnlocker
     {
         KappiModCore.Loader.SceneWasInitialized += OnSceneWasInitialized;
 
-        KappiModCore.Log($"[{nameof(ConsoleUnlocker)}] Initialized");
+        KappiModCore.Log("Initialized");
     }
 
     public static void UnlockConsole()
@@ -23,16 +23,16 @@ public static class ConsoleUnlocker
             {
                 ConsoleMain.liteVersion = false;
 
-                KappiModCore.Log($"[{nameof(ConsoleUnlocker)}] Console successfully unlocked!");
+                KappiModCore.Log("Console successfully unlocked!");
             }
             else
             {
-                KappiModCore.Log($"[{nameof(ConsoleUnlocker)}] Console is already unlocked!");
+                KappiModCore.Log("Console is already unlocked!");
             }
         }
         catch (Exception e)
         {
-            KappiModCore.LogError($"[{nameof(ConsoleUnlocker)}] {e.Message}");
+            KappiModCore.LogError(e.Message);
         }
     }
 

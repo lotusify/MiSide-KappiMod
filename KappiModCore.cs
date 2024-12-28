@@ -1,4 +1,5 @@
-﻿using KappiMod.Config;
+﻿using System.Runtime.CompilerServices;
+using KappiMod.Config;
 using KappiMod.Loader;
 using KappiMod.Mods;
 using KappiMod.Patches;
@@ -70,15 +71,33 @@ public static class KappiModCore
 
     #region LOGGING
 
-    public static void Log(object message) => Log(message, LogType.Log);
+    public static void Log(object message, LogType logType) => InternalLog(message, null, logType);
 
-    public static void LogWarning(object message) => Log(message, LogType.Warning);
+    public static void Log(object message, [CallerFilePath] string? callerFilePath = null) =>
+        InternalLog(message, callerFilePath, LogType.Log);
 
-    public static void LogError(object message) => Log(message, LogType.Error);
+    public static void LogWarning(object message, [CallerFilePath] string? callerFilePath = null) =>
+        InternalLog(message, callerFilePath, LogType.Warning);
 
-    private static void Log(object message, LogType logType)
+    public static void LogError(object message, [CallerFilePath] string? callerFilePath = null) =>
+        InternalLog(message, callerFilePath, LogType.Error);
+
+    private static void InternalLog(
+        object? message,
+        string? callerFilePath = null,
+        LogType logType = LogType.Log
+    )
     {
-        string log = message?.ToString() ?? "";
+        string log;
+        if (callerFilePath is not null)
+        {
+            string callerClassName = Path.GetFileNameWithoutExtension(callerFilePath);
+            log = $"[{callerClassName}] {message?.ToString() ?? ""}";
+        }
+        else
+        {
+            log = message?.ToString() ?? "";
+        }
 
         switch (logType)
         {
