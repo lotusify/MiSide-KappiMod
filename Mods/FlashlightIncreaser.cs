@@ -39,7 +39,7 @@ public static class FlashlightIncreaser
     }
 
     private static bool _isFlashlightEnabled = false;
-    private static WorldPlayer? _player;
+    private static WorldPlayer? _worldPlayer;
     private static float _savedFlashlightRange = NOT_INITIALIZED;
     private static float _savedFlashlightSpotAngle = NOT_INITIALIZED;
 
@@ -81,8 +81,8 @@ public static class FlashlightIncreaser
     {
         try
         {
-            _player = UnityEngine.Object.FindObjectOfType<WorldPlayer>();
-            if (_player == null)
+            WorldPlayer? worldPlayer = GetWorldPlayer();
+            if (worldPlayer == null)
             {
                 KappiModCore.LogError($"Object {nameof(WorldPlayer)} not found!");
 
@@ -90,11 +90,11 @@ public static class FlashlightIncreaser
                 return;
             }
 
-            _savedFlashlightRange = _player.flashLightRange;
-            _savedFlashlightSpotAngle = _player.flashLightSpotAngle;
+            _savedFlashlightRange = worldPlayer.flashLightRange;
+            _savedFlashlightSpotAngle = worldPlayer.flashLightSpotAngle;
 
-            _player.flashLightRange = FLASHLIGHT_RANGE;
-            _player.flashLightSpotAngle = FLASHLIGHT_SPOT_ANGLE;
+            worldPlayer.flashLightRange = FLASHLIGHT_RANGE;
+            worldPlayer.flashLightSpotAngle = FLASHLIGHT_SPOT_ANGLE;
         }
         catch (Exception e)
         {
@@ -109,16 +109,17 @@ public static class FlashlightIncreaser
         try
         {
             if (
-                _player == null
+                _worldPlayer == null
                 || _savedFlashlightRange <= NOT_INITIALIZED
                 || _savedFlashlightSpotAngle <= NOT_INITIALIZED
             )
             {
+                ResetState();
                 return;
             }
 
-            _player.flashLightRange = _savedFlashlightRange;
-            _player.flashLightSpotAngle = _savedFlashlightSpotAngle;
+            _worldPlayer.flashLightRange = _savedFlashlightRange;
+            _worldPlayer.flashLightSpotAngle = _savedFlashlightSpotAngle;
 
             ResetState();
         }
@@ -130,9 +131,24 @@ public static class FlashlightIncreaser
         }
     }
 
+    private static WorldPlayer? GetWorldPlayer()
+    {
+        if (!IsWoldPlayerValid())
+        {
+            _worldPlayer = GameObject.Find("World").GetComponent<WorldPlayer>();
+        }
+
+        return _worldPlayer;
+    }
+
+    private static bool IsWoldPlayerValid()
+    {
+        return _worldPlayer != null && _worldPlayer.gameObject != null;
+    }
+
     private static void ResetState()
     {
-        _player = null;
+        _worldPlayer = null;
         _isFlashlightEnabled = false;
         _savedFlashlightRange = NOT_INITIALIZED;
         _savedFlashlightSpotAngle = NOT_INITIALIZED;
