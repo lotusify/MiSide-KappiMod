@@ -59,8 +59,6 @@ public static class SprintUnlocker
         catch (Exception e)
         {
             KappiModCore.LogError(e.Message);
-
-            _playerMove = null;
         }
     }
 
