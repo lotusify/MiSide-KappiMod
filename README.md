@@ -20,7 +20,7 @@
 
 ## Информация о модификациях (English version below)
 
-Последняя версия мод пака доступна [здесь](https://github.com/MrSago/MiSide-KappiMod/releases).
+Последняя версия мод пака доступна [здесь](https://github.com/MrSago/MiSide-KappiMod/releases/latest).
 
 ### Поддерживаемые загрузчики модов
 
@@ -66,7 +66,7 @@
     - Нам нужен **BepInEx-Unity.IL2CPP-win-x64-6.x.x** (6-ая версия)
     - Распакуйте содержимое архива в папку с игрой
 
-- Скачать [последнюю версию мода](https://github.com/MrSago/MiSide-KappiMod/releases) **под нужный загрузчик:**
+- Скачать [последнюю версию мода](https://github.com/MrSago/MiSide-KappiMod/releases/latest) **под нужный загрузчик:**
 
   - KappiMod.MelonLoader.zip - для MelonLoader
   - KappiMod.BepInEx.zip - для BepInEx
@@ -92,7 +92,7 @@
 
 ## Information about modifications (English)
 
-Latest version of the mod pack is available [here](https://github.com/MrSago/MiSide-KappiMod/releases).
+Latest version of the mod pack is available [here](https://github.com/MrSago/MiSide-KappiMod/releases/latest).
 
 ### Supported mod loaders
 
@@ -138,7 +138,7 @@ Skipping dialogues is enabled in the GUI (F1 key).
     - We need **BepInEx-Unity.IL2CPP-win-x64-6.x.x** (6th version)
     - Unzip the contents of the archive into the game folder
 
-- Download [the latest version of the mod](https://github.com/MrSago/MiSide-KappiMod/releases) for **the required loader**:
+- Download [the latest version of the mod](https://github.com/MrSago/MiSide-KappiMod/releases/latest) for **the required loader**:
 
   - KappiMod.MelonLoader.zip - for the MelonLoader
   - KappiMod.BepInEx.zip - for the BepInEx
