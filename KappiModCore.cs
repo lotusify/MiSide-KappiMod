@@ -5,6 +5,7 @@ using KappiMod.Mods;
 using KappiMod.Patches;
 using KappiMod.Properties;
 using KappiMod.UI;
+using KappiMod.Utils;
 using UnityEngine;
 using UniverseLib;
 
@@ -43,6 +44,7 @@ public static class KappiModCore
 
         InitMods();
         InitPatches();
+        InitUtils();
     }
 
     private static void LateInitUI()
@@ -68,6 +70,11 @@ public static class KappiModCore
     {
         DialogueSkipper.Init();
         IntroSkipper.Init();
+    }
+
+    private static void InitUtils()
+    {
+        SceneTracker.Init();
     }
 
     #region LOGGING

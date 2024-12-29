@@ -1,4 +1,5 @@
 using HarmonyLib;
+using KappiMod.Utils;
 using UnityEngine;
 using UnityEngine.Playables;
 #if ML
@@ -58,6 +59,11 @@ public static class IntroSkipper
         {
             try
             {
+                if (SceneTracker.LastSceneName == ObjectNames.ENDING_GAME_SCENE)
+                {
+                    return;
+                }
+
                 __instance.eventSkip.Invoke();
                 __instance.SkipStart();
             }
