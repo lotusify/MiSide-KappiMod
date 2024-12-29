@@ -138,7 +138,6 @@ public static class FlashlightIncreaser
         {
             _worldPlayer = GameObject.Find("World")?.GetComponent<WorldPlayer>();
         }
-
         return _worldPlayer;
     }
 
