@@ -51,12 +51,12 @@ jobs:
       - name: Create ML zip
         run: |
           cd ./artifacts/ML
-          zip -r ../../${{ env.MOD_NAME }}.MelonLoader.zip ./*
+          zip -r ../../${{ env.MOD_NAME }}.MelonLoader-${{ github.ref }}.zip ./*
 
       - name: Create BIE zip
         run: |
           cd ./artifacts/BIE
-          zip -r ../../${{ env.MOD_NAME }}.BepInEx.zip ./*
+          zip -r ../../${{ env.MOD_NAME }}.BepInEx-${{ github.ref }}.zip ./*
 
       - name: Create release
         id: create_release
