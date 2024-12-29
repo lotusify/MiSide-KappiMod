@@ -51,10 +51,12 @@ public static class SprintUnlocker
         try
         {
             PlayerMove? playerMove = GetPlayerMove();
-            if (playerMove != null)
+            if (playerMove == null)
             {
-                playerMove.canRun = value;
+                return;
             }
+
+            playerMove.canRun = value;
         }
         catch (Exception e)
         {
