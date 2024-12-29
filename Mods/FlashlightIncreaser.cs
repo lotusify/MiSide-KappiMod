@@ -66,6 +66,7 @@ public static class FlashlightIncreaser
         }
 
         KappiModCore.Log($"Flashlight {(_isFlashlightEnabled ? "increased" : "restored")}");
+
         return _isFlashlightEnabled;
     }
 
@@ -135,7 +136,7 @@ public static class FlashlightIncreaser
     {
         if (!IsWoldPlayerValid())
         {
-            _worldPlayer = GameObject.Find("World").GetComponent<WorldPlayer>();
+            _worldPlayer = GameObject.Find("World")?.GetComponent<WorldPlayer>();
         }
 
         return _worldPlayer;

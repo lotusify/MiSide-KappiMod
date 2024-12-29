@@ -48,10 +48,12 @@ public static class SitUnlocker
         try
         {
             PlayerMove? playerMove = GetPlayerMove();
-            if (playerMove != null)
+            if (playerMove == null)
             {
-                playerMove.canSit = value;
+                return;
             }
+
+            playerMove.canSit = value;
         }
         catch (Exception e)
         {
