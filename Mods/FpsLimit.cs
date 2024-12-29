@@ -23,6 +23,11 @@ public static class FpsLimit
         try
         {
             int fps = fpsLimit < 0 ? -1 : Mathf.Max(10, fpsLimit);
+            if (Application.targetFrameRate == fps)
+            {
+                return;
+            }
+
             Application.targetFrameRate = fps;
 
             KappiModCore.Log($"FPS limit set to {(fps < 0 ? "unlimited" : fps.ToString())}");
