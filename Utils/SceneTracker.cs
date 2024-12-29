@@ -12,10 +12,10 @@ public static class SceneTracker
 
     public static void Init()
     {
-        KappiModCore.Loader.SceneWasInitialized += OnSceneWasInitialized;
+        KappiModCore.Loader.SceneWasLoaded += OnSceneWasLoaded;
     }
 
-    private static void OnSceneWasInitialized(int buildIndex, string sceneName)
+    private static void OnSceneWasLoaded(int buildIndex, string sceneName)
     {
         _lastSceneName = _currentSceneName;
         _currentSceneName = sceneName;
