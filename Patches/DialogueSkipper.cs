@@ -147,7 +147,6 @@ public static class DialogueSkipper
             sb.AppendLine($"Index string: {indexString}");
             sb.AppendLine($"Text: {text}");
             sb.AppendLine(new string(separator, 50));
-
             KappiModCore.Log(sb.ToString());
         }
     }
