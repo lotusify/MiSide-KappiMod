@@ -76,7 +76,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./${{ env.MOD_NAME }}.MelonLoader-${{ github.ref_name }}.zip
-          asset_name: ${{ env.MOD_NAME }}.MelonLoader.zip
+          asset_name: ${{ env.MOD_NAME }}.MelonLoader-${{ github.ref_name }}.zip
           asset_content_type: application/zip
 
       - name: Upload BIE release asset
@@ -86,5 +86,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./${{ env.MOD_NAME }}.BepInEx-${{ github.ref_name }}.zip
-          asset_name: ${{ env.MOD_NAME }}.BepInEx.zip
+          asset_name: ${{ env.MOD_NAME }}.BepInEx-${{ github.ref_name }}.zip
           asset_content_type: application/zip
