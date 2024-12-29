@@ -31,7 +31,7 @@
 
 ### Список модификаций
 
-Названия кликабельны, если есть необходимость поставить моды или патчи из списков отдельно.
+Некоторые названия кликабельны, если есть необходимость поставить моды или патчи из списков отдельно, так как этот мод пак идет одним _dll_ файлом
 
 |                                          Мод                                          | Статус |
 | :-----------------------------------------------------------------------------------: | :----: |
@@ -104,7 +104,7 @@ Latest version of the mod pack is available [here](https://github.com/MrSago/MiS
 
 ### Mod list
 
-The names are clickable if there is a need to install mods or patches from the lists separately.
+The some names are clickable if there is a need to install mods or patches from the lists separately, because this mod pack contains one _dll_ file
 
 |                                      Mod                                      | Status |
 | :---------------------------------------------------------------------------: | :----: |
