@@ -52,6 +52,7 @@
 
 |       Патч       |             Статус              |
 | :--------------: | :-----------------------------: |
+|  Пропуск интро   |               ✅                |
 | Пропуск диалогов | **⚠️ МОЖЕТ ВЫЗВАТЬ СОФТЛОК ⚠️** |
 
 Пропуск диалогов включается в GUI (клавиша F1).
@@ -124,6 +125,7 @@ The installed settings in the GUI of the mod are saved!
 
 |      Patch       |            Status            |
 | :--------------: | :--------------------------: |
+|  Intro skipper   |              ✅              |
 | Dialogue skipper | **⚠️ MAY CAUSE SOFTLOCK ⚠️** |
 
 Skipping dialogues is enabled in the GUI (F1 key).
