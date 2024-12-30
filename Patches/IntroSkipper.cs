@@ -67,7 +67,13 @@ public static class IntroSkipper
                 __instance.eventSkip.Invoke();
                 __instance.SkipStart();
             }
-            catch (Exception) { }
+            catch (Exception)
+            {
+                /*
+                __instance.SkipStart() throws an exception
+                but it works anyway and we ignore this exception
+                */
+            }
 
             KappiModCore.Log("The opening menu cutscene should be skipped");
         }
