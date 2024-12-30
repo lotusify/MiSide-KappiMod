@@ -38,7 +38,6 @@
 |                                       GUI мода                                        |   ✅   |
 |                                 Разблокировка консоли                                 |   ✅   |
 | [Увеличение мощности фонарика](https://github.com/MrSago/MiSide-Flashlight-Increaser) |   ✅   |
-|                                   Возможность лечь                                    |   ⭕   |
 |                              Установка FPS лимита в GUI                               |   ✅   |
 |       [Разблокировка приседания](https://github.com/MrSago/MiSide-Sit-Unlocker)       |   ✅   |
 |       [Разблокировка спринта](https://github.com/MrSago/MiSide-Sprint-Unlocker)       |   ✅   |
@@ -111,7 +110,6 @@ The some names are clickable if there is a need to install mods or patches from 
 |                                    Mod GUI                                    |   ✅   |
 |                               Console unlocker                                |   ✅   |
 | [Flashlight increaser](https://github.com/MrSago/MiSide-Flashlight-Increaser) |   ✅   |
-|                                  Lying down                                   |   ⭕   |
 |                             Set FPS limit in GUI                              |   ✅   |
 |         [Sit unlocker](https://github.com/MrSago/MiSide-Sit-Unlocker)         |   ✅   |
 |      [Sprint unlocker](https://github.com/MrSago/MiSide-Sprint-Unlocker)      |   ✅   |
