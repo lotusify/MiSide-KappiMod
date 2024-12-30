@@ -42,6 +42,7 @@
 |       [Разблокировка приседания](https://github.com/MrSago/MiSide-Sit-Unlocker)       |   ✅   |
 |       [Разблокировка спринта](https://github.com/MrSago/MiSide-Sprint-Unlocker)       |   ✅   |
 |                                  Скроллер time scale                                  |   ✅   |
+|                                     Следующий мод                                     |   ❓   |
 
 > _Примечание: ставить отдельно модификации можно, но ставить их с мод паком не имеет смысла, т.к. они замещают функционал друг друга._
 
@@ -53,23 +54,24 @@
 | :--------------: | :-----------------------------: |
 |  Пропуск интро   |               ✅                |
 | Пропуск диалогов | **⚠️ МОЖЕТ ВЫЗВАТЬ СОФТЛОК ⚠️** |
+|  Следующий патч  |               ❓                |
 
 Пропуск диалогов включается в GUI (клавиша F1).
 
 ## Установка мод пака
 
-- Установить один из поддерживаемых загрузчиков
+- Установить один из поддерживаемых загрузчиков **(я рекомендую поставить BepInEx)**:
 
-  - [MelonLoader](https://github.com/LavaGang/MelonLoader/releases)
-    - Просто используйте **установщик** последней версии
   - [BepInEx](https://github.com/BepInEx/BepInEx/releases)
     - Нам нужен **BepInEx-Unity.IL2CPP-win-x64-6.x.x** (6-ая версия)
     - Распакуйте содержимое архива в папку с игрой
+  - [MelonLoader](https://github.com/LavaGang/MelonLoader/releases)
+    - Просто используйте **установщик** последней версии
 
 - Скачать [последнюю версию мода](https://github.com/MrSago/MiSide-KappiMod/releases/latest) **под нужный загрузчик:**
 
-  - KappiMod.MelonLoader.zip - для MelonLoader
   - KappiMod.BepInEx.zip - для BepInEx
+  - KappiMod.MelonLoader.zip - для MelonLoader
 
 - Извлечь файлы из архива в папку с игрой
 
@@ -98,8 +100,8 @@ Latest version of the mod pack is available [here](https://github.com/MrSago/MiS
 
 | Mod loader  | Supported |
 | :---------: | :-------: |
-| MelonLoader |    ✅     |
 |   BepInEx   |    ✅     |
+| MelonLoader |    ✅     |
 
 ### Mod list
 
@@ -114,6 +116,7 @@ The some names are clickable if there is a need to install mods or patches from 
 |         [Sit unlocker](https://github.com/MrSago/MiSide-Sit-Unlocker)         |   ✅   |
 |      [Sprint unlocker](https://github.com/MrSago/MiSide-Sprint-Unlocker)      |   ✅   |
 |                              Time scale scroller                              |   ✅   |
+|                                   Next mode                                   |   ❓   |
 
 > _Note: you can install modifications separately, but installing them with a mod pack does not make sense, because they replace each other's functionality._
 
@@ -125,23 +128,24 @@ The installed settings in the GUI of the mod are saved!
 | :--------------: | :--------------------------: |
 |  Intro skipper   |              ✅              |
 | Dialogue skipper | **⚠️ MAY CAUSE SOFTLOCK ⚠️** |
+|    Next patch    |              ❓              |
 
 Skipping dialogues is enabled in the GUI (F1 key).
 
 ## Mod pack installation
 
-- Install one of the supported mod loaders:
+- Install one of the supported mod loaders **(I recommend install BepInEx)**:
 
-  - [MelonLoader](https://github.com/LavaGang/MelonLoader/releases)
-    - Just use the latest version **installer**
   - [BepInEx](https://github.com/BepInEx/BepInEx/releases)
     - We need **BepInEx-Unity.IL2CPP-win-x64-6.x.x** (6th version)
     - Unzip the contents of the archive into the game folder
+  - [MelonLoader](https://github.com/LavaGang/MelonLoader/releases)
+    - Just use the latest version **installer**
 
 - Download [the latest version of the mod](https://github.com/MrSago/MiSide-KappiMod/releases/latest) for **the required loader**:
 
-  - KappiMod.MelonLoader.zip - for the MelonLoader
   - KappiMod.BepInEx.zip - for the BepInEx
+  - KappiMod.MelonLoader.zip - for the MelonLoader
 
 - Extract files from the archive into the game folder
 
