@@ -15,7 +15,7 @@ public static class NativeResolutionOption
 
     public static void Init()
     {
-        _harmony = new("com.nativeresolution.miside");
+        _harmony = new("com.nativeresolutionoption.miside");
         _harmony.PatchAll(typeof(Patch));
 
         KappiModCore.Log("Initialized");
