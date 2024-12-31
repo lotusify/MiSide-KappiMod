@@ -50,11 +50,12 @@
 
 ### Список патчей
 
-|       Патч       |             Статус              |
-| :--------------: | :-----------------------------: |
-|  Пропуск интро   |               ✅                |
-| Пропуск диалогов | **⚠️ МОЖЕТ ВЫЗВАТЬ СОФТЛОК ⚠️** |
-|  Следующий патч  |               ❓                |
+|                                             Патч                                              |             Статус              |
+| :-------------------------------------------------------------------------------------------: | :-----------------------------: |
+|                                         Пропуск интро                                         |               ✅                |
+|                                       Пропуск диалогов                                        | **⚠️ МОЖЕТ ВЫЗВАТЬ СОФТЛОК ⚠️** |
+| [Нативное разрешение в настройках](https://github.com/MrSago/MiSide-Native-Resolution-Option) |               ✅                |
+|                                        Следующий патч                                         |               ❓                |
 
 Пропуск диалогов включается в GUI (клавиша F1).
 
@@ -124,11 +125,12 @@ The installed settings in the GUI of the mod are saved!
 
 ### Patch list
 
-|      Patch       |            Status            |
-| :--------------: | :--------------------------: |
-|  Intro skipper   |              ✅              |
-| Dialogue skipper | **⚠️ MAY CAUSE SOFTLOCK ⚠️** |
-|    Next patch    |              ❓              |
+|                                         Patch                                         |            Status            |
+| :-----------------------------------------------------------------------------------: | :--------------------------: |
+|                                     Intro skipper                                     |              ✅              |
+|                                   Dialogue skipper                                    | **⚠️ MAY CAUSE SOFTLOCK ⚠️** |
+| [Native resolution option](https://github.com/MrSago/MiSide-Native-Resolution-Option) |              ✅              |
+|                                      Next patch                                       |              ❓              |
 
 Skipping dialogues is enabled in the GUI (F1 key).
 

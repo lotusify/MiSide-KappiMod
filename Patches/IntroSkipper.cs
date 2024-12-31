@@ -70,8 +70,8 @@ public static class IntroSkipper
             catch (Exception)
             {
                 /*
-                __instance.SkipStart() throws an exception
-                but it works anyway and we ignore this exception
+                    __instance.SkipStart() throws an exception
+                    but it works anyway and we ignore this exception
                 */
             }
 
