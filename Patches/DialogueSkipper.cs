@@ -28,36 +28,6 @@ public static class DialogueSkipper
 
     private static HarmonyLib.Harmony _harmony = null!;
 
-    private static readonly DialogueSceneMappings _ignoredDialogues = new()
-    {
-        {
-            "Scene 7 - Backrooms",
-            new DialogueMapping { { "KindMita 1 [Продолжает]", 203 }, { "KindMita 2", 204 } }
-        },
-        {
-            "Scene 17 - Dreamer",
-            new DialogueMapping
-            {
-                { "Mita 3", 74 },
-                { "Mita 4", 75 },
-                { "Mita 5", 76 },
-                { "Player 7", 100 },
-                { "Player 8", 101 },
-                { "Mita 1(Clone)", 106 },
-                { "Mita 2(Clone)", 105 },
-                { "Mita 3(Clone)", 104 },
-            }
-        },
-        {
-            "Scene 14 - MobilePlayer",
-            new DialogueMapping { { "Player 6", 121 }, { "Mita 1 [Шепотом]", 123 } }
-        },
-        {
-            "Scene 15 - BasementAndDeath",
-            new DialogueMapping { { "Player 1", 68 }, { "Player 2", 69 } }
-        },
-    };
-
     public static void Init()
     {
         _harmony = new("com.dialogueskipper.miside");
@@ -69,6 +39,36 @@ public static class DialogueSkipper
     [HarmonyPatch]
     private static class Patch
     {
+        private static readonly DialogueSceneMappings _ignoredDialogues = new()
+        {
+            {
+                "Scene 7 - Backrooms",
+                new DialogueMapping { { "KindMita 1 [Продолжает]", 203 }, { "KindMita 2", 204 } }
+            },
+            {
+                "Scene 17 - Dreamer",
+                new DialogueMapping
+                {
+                    { "Mita 3", 74 },
+                    { "Mita 4", 75 },
+                    { "Mita 5", 76 },
+                    { "Player 7", 100 },
+                    { "Player 8", 101 },
+                    { "Mita 1(Clone)", 106 },
+                    { "Mita 2(Clone)", 105 },
+                    { "Mita 3(Clone)", 104 },
+                }
+            },
+            {
+                "Scene 14 - MobilePlayer",
+                new DialogueMapping { { "Player 6", 121 }, { "Mita 1 [Шепотом]", 123 } }
+            },
+            {
+                "Scene 15 - BasementAndDeath",
+                new DialogueMapping { { "Player 1", 68 }, { "Player 2", 69 } }
+            },
+        };
+
         [HarmonyPatch(typeof(Dialogue_3DText), "Start")]
         private static void Prefix(Dialogue_3DText __instance)
         {
