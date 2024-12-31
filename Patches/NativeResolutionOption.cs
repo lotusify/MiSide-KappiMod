@@ -57,7 +57,7 @@ public static class NativeResolutionOption
             {
                 if (buttonInfo.buttonText == buttonText)
                 {
-                    KappiModCore.Log("Button already exists");
+                    KappiModCore.Log("Option is already exists");
                     return;
                 }
             }
@@ -71,6 +71,8 @@ public static class NativeResolutionOption
             newButtonInfo.value_int = index >= 0 ? index : menuCaseOption.resolutions.Count - 1;
 
             menuCaseOption.scrIccb?.Add(newButtonInfo);
+
+            KappiModCore.Log("Option successfully added");
         }
 
         private static Resolution GetNativeResolution()
