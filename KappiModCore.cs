@@ -70,6 +70,7 @@ public static class KappiModCore
     {
         DialogueSkipper.Init();
         IntroSkipper.Init();
+        NativeResolutionOption.Init();
     }
 
     private static void InitUtils()
