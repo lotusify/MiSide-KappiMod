@@ -18,7 +18,7 @@ public static class IntroSkipper
     {
         KappiModCore.Loader.SceneWasInitialized += OnSceneWasInitialized;
 
-        _harmony = new("com.introskipper.miside");
+        _harmony = new("com.miside.introskipper");
         _harmony.PatchAll(typeof(Patch));
 
         KappiModCore.Log("Initialized");
@@ -57,13 +57,13 @@ public static class IntroSkipper
         [HarmonyPatch(typeof(Menu), "Start")]
         private static void Postfix(Menu __instance)
         {
+            if (SceneTracker.LastSceneName == ObjectNames.ENDING_GAME_SCENE)
+            {
+                return;
+            }
+
             try
             {
-                if (SceneTracker.LastSceneName == ObjectNames.ENDING_GAME_SCENE)
-                {
-                    return;
-                }
-
                 __instance.eventSkip.Invoke();
                 __instance.SkipStart();
             }
