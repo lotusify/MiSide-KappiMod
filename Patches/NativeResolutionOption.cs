@@ -58,10 +58,11 @@ public static class NativeResolutionOption
             }
 
             Resolution resolution = GetNativeResolution();
-            string buttonText =
-                $"{resolution.width}x{resolution.height}@{resolution.refreshRate}Hz";
+            string buttonText = "Native Resolution";
 
-            KappiModCore.Log($"Native resolution: {buttonText}");
+            KappiModCore.Log(
+                $"Native resolution: {resolution.width}x{resolution.height}@{resolution.refreshRate}Hz"
+            );
 
             foreach (var buttonInfo in menuCaseOption.scrIccb)
             {
@@ -72,15 +73,14 @@ public static class NativeResolutionOption
                 }
             }
 
+            int index = menuCaseOption.resolutions.IndexOf(resolution);
+            index = index >= 0 ? index : menuCaseOption.resolutions.Count - 1;
             var newButtonInfo = new Interface_ChangeScreenButton_Class_ButtonInfo()
             {
                 buttonText = buttonText,
+                value_int = index,
             };
-
-            int index = menuCaseOption.resolutions.IndexOf(resolution);
-            newButtonInfo.value_int = index >= 0 ? index : menuCaseOption.resolutions.Count - 1;
-
-            menuCaseOption.scrIccb?.Add(newButtonInfo);
+            menuCaseOption.scrIccb.Add(newButtonInfo);
 
             KappiModCore.Log("Option successfully added");
         }
