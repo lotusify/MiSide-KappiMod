@@ -4,7 +4,7 @@
 
 - [_KappiMod_ pack for MiSide](#kappimod-pack-for-miside)
   - [Table of contents](#table-of-contents)
-  - [Information about modifications (English)](#information-about-modifications-english)
+  - [Information about modifications](#information-about-modifications)
     - [Supported mod loaders](#supported-mod-loaders)
     - [Mod list](#mod-list)
     - [Patch list](#patch-list)
@@ -18,7 +18,7 @@
   - [Установка мод пака](#установка-мод-пака)
   - [Назначение клавиш](#назначение-клавиш)
 
-## Information about modifications (English)
+## Information about modifications
 
 Latest version of the mod pack is available [here](https://github.com/MrSago/MiSide-KappiMod/releases/latest).
 
