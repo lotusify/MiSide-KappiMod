@@ -52,7 +52,7 @@ The installed settings in the GUI of the mod are saved!
 
 |                                         Patch                                         |            Status            |
 | :-----------------------------------------------------------------------------------: | :--------------------------: |
-|                                     Intro skipper                                     |              ✅              |
+|            [Intro skipper](https://github.com/MrSago/MiSide-Intro-Skipper)            |              ✅              |
 |                                   Dialogue skipper                                    | **⚠️ MAY CAUSE SOFTLOCK ⚠️** |
 | [Native resolution option](https://github.com/MrSago/MiSide-Native-Resolution-Option) |              ✅              |
 |                                      Next patch                                       |              ❓              |
