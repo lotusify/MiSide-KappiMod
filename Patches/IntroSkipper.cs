@@ -18,8 +18,8 @@ public static class IntroSkipper
     {
         KappiModCore.Loader.SceneWasInitialized += OnSceneWasInitialized;
 
-        _harmony = new("com.miside.introskipper");
-        _harmony.PatchAll(typeof(Patch));
+        // _harmony = new("com.miside.introskipper");
+        // _harmony.PatchAll(typeof(Patch));
 
         KappiModCore.Log("Initialized");
     }
@@ -51,31 +51,31 @@ public static class IntroSkipper
         }
     }
 
-    [HarmonyPatch]
-    private static class Patch
-    {
-        [HarmonyPatch(typeof(Menu), "Start")]
-        private static void Postfix(Menu __instance)
-        {
-            if (SceneTracker.LastSceneName == ObjectNames.ENDING_GAME_SCENE)
-            {
-                return;
-            }
+    // [HarmonyPatch]
+    // private static class Patch
+    // {
+    //     [HarmonyPatch(typeof(Menu), "Start")]
+    //     private static void Postfix(Menu __instance)
+    //     {
+    //         if (SceneTracker.LastSceneName == ObjectNames.ENDING_GAME_SCENE)
+    //         {
+    //             return;
+    //         }
 
-            try
-            {
-                __instance.eventSkip.Invoke();
-                __instance.SkipStart();
-            }
-            catch (Exception)
-            {
-                /*
-                    __instance.SkipStart() throws an exception
-                    but it works anyway and we ignore this exception
-                */
-            }
+    //         try
+    //         {
+    //             __instance.eventSkip.Invoke();
+    //             __instance.SkipStart();
+    //         }
+    //         catch (Exception)
+    //         {
+    //             /*
+    //                 __instance.SkipStart() throws an exception
+    //                 but it works anyway and we ignore this exception
+    //             */
+    //         }
 
-            KappiModCore.Log("The opening menu cutscene should be skipped");
-        }
-    }
+    //         KappiModCore.Log("The opening menu cutscene should be skipped");
+    //     }
+    // }
 }
