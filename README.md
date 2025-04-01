@@ -7,14 +7,35 @@
   - [Information about modifications](#information-about-modifications)
     - [Supported mod loaders](#supported-mod-loaders)
     - [Mod list](#mod-list)
+      - [Mod GUI](#mod-gui)
+      - [Console unlocker](#console-unlocker)
+      - [Flashlight increaser](#flashlight-increaser)
+      - [Set FPS limit in GUI](#set-fps-limit-in-gui)
+      - [Sit unlocker](#sit-unlocker)
+      - [Sprint unlocker](#sprint-unlocker)
+      - [Time scale scroller](#time-scale-scroller)
+      - [Next mode](#next-mode)
     - [Patch list](#patch-list)
+      - [Intro skipper](#intro-skipper)
+      - [Native resolution option](#native-resolution-option)
   - [Mod pack installation](#mod-pack-installation)
   - [Key bindings](#key-bindings)
   - [For developers](#for-developers)
+- [_KappiMod_ пак для MiSide (Russian)](#kappimod-пак-для-miside-russian)
   - [Информация о модификациях](#информация-о-модификациях)
     - [Поддерживаемые загрузчики модов](#поддерживаемые-загрузчики-модов)
     - [Список модификаций](#список-модификаций)
+      - [GUI мода](#gui-мода)
+      - [Разблокировка консоли](#разблокировка-консоли)
+      - [Увеличение мощности фонарика](#увеличение-мощности-фонарика)
+      - [Установка FPS лимита в GUI](#установка-fps-лимита-в-gui)
+      - [Разблокировка приседания](#разблокировка-приседания)
+      - [Разблокировка спринта](#разблокировка-спринта)
+      - [Скроллер time scale](#скроллер-time-scale)
+      - [Следующий мод](#следующий-мод)
     - [Список патчей](#список-патчей)
+      - [Пропуск интро](#пропуск-интро)
+      - [Нативное разрешение в настройках](#нативное-разрешение-в-настройках)
   - [Установка мод пака](#установка-мод-пака)
   - [Назначение клавиш](#назначение-клавиш)
 
@@ -31,33 +52,67 @@ Latest version of the mod pack is available [here](https://github.com/MrSago/MiS
 
 ### Mod list
 
-The some names are clickable if there is a need to install mods or patches from the lists separately, because this mod pack contains one _dll_ file
+#### Mod GUI
 
-|                                      Mod                                      | Status |
-| :---------------------------------------------------------------------------: | :----: |
-|                                    Mod GUI                                    |   ✅   |
-|                               Console unlocker                                |   ✅   |
-| [Flashlight increaser](https://github.com/MrSago/MiSide-Flashlight-Increaser) |   ✅   |
-|                             Set FPS limit in GUI                              |   ✅   |
-|         [Sit unlocker](https://github.com/MrSago/MiSide-Sit-Unlocker)         |   ✅   |
-|      [Sprint unlocker](https://github.com/MrSago/MiSide-Sprint-Unlocker)      |   ✅   |
-|                              Time scale scroller                              |   ✅   |
-|                                   Next mode                                   |   ❓   |
+Opens by F1 key.
 
-> _Note: you can install modifications separately, but installing them with a mod pack does not make sense, because they replace each other's functionality._
+> _Note: the installed settings in the GUI of the mod are saved!_
 
-The installed settings in the GUI of the mod are saved!
+#### Console unlocker
+
+Unlocks in-game console by holding ~ key.
+
+#### Flashlight increaser
+
+Increases the range and radius of the flashlight by the **F** key. Pressing it again returns the original state.
+
+<details>
+  <summary>Flashlight preview (May contains spoilers!)</summary>
+    <img src="./Content/img/flashlight_preview.gif" alt="gif preview">
+</details>
+
+#### Set FPS limit in GUI
+
+<details>
+  <summary>FPS limit preview.</summary>
+    <img src="./Content/img/fps_preview.png" alt="image preview">
+</details>
+
+#### Sit unlocker
+
+Unlocks the ability to sit down with the LCtrl (left control) key.
+
+<details>
+  <summary>Sit preview (May contains spoilers!)</summary>
+    <img src="./Content/img/sit_preview.gif" alt="gif preview">
+</details>
+
+#### Sprint unlocker
+
+Unlocks sprint mode by holding the Shift key.
+
+#### Time scale scroller
+
+Hold Left Shift and scroll mouse wheel for changing time scale.
+
+#### Next mode
+
+❓
 
 ### Patch list
 
-|                                         Patch                                         |            Status            |
-| :-----------------------------------------------------------------------------------: | :--------------------------: |
-|            [Intro skipper](https://github.com/MrSago/MiSide-Intro-Skipper)            |              ✅              |
-|                                   Dialogue skipper                                    | **⚠️ MAY CAUSE SOFTLOCK ⚠️** |
-| [Native resolution option](https://github.com/MrSago/MiSide-Native-Resolution-Option) |              ✅              |
-|                                      Next patch                                       |              ❓              |
+#### Intro skipper
 
-Skipping dialogues is enabled in the GUI (F1 key).
+Automatically skips intro and cutscene when starting the game. Enabled in the GUI (F1 key).
+
+#### Native resolution option
+
+<details>
+  <summary>Option preview</summary>
+    <img src="./Content/img/native_preview.png" alt="image preview">
+</details>
+
+Adds an option in the settings with native resolution with the maximum monitor resolution and maximum frequency. You can find this option in the resolution list with the name "Native Resolution" (see the preview section).
 
 ## Mod pack installation
 
@@ -97,6 +152,8 @@ _Soon..._
 
 ---
 
+# _KappiMod_ пак для MiSide (Russian)
+
 ## Информация о модификациях
 
 Последняя версия мод пака доступна [здесь](https://github.com/MrSago/MiSide-KappiMod/releases/latest).
@@ -110,33 +167,67 @@ _Soon..._
 
 ### Список модификаций
 
-Некоторые названия кликабельны, если есть необходимость поставить моды или патчи из списков отдельно, так как этот мод пак идет одним _dll_ файлом
+#### GUI мода
 
-|                                          Мод                                          | Статус |
-| :-----------------------------------------------------------------------------------: | :----: |
-|                                       GUI мода                                        |   ✅   |
-|                                 Разблокировка консоли                                 |   ✅   |
-| [Увеличение мощности фонарика](https://github.com/MrSago/MiSide-Flashlight-Increaser) |   ✅   |
-|                              Установка FPS лимита в GUI                               |   ✅   |
-|       [Разблокировка приседания](https://github.com/MrSago/MiSide-Sit-Unlocker)       |   ✅   |
-|       [Разблокировка спринта](https://github.com/MrSago/MiSide-Sprint-Unlocker)       |   ✅   |
-|                                  Скроллер time scale                                  |   ✅   |
-|                                     Следующий мод                                     |   ❓   |
+Открывается по клавише F1.
 
-> _Примечание: ставить отдельно модификации можно, но ставить их с мод паком не имеет смысла, т.к. они замещают функционал друг друга._
+> _Установленные настройки в GUI мода сохраняются!_
 
-Установленные настройки в GUI мода сохраняются!
+#### Разблокировка консоли
+
+Разблокирует внутриигровую консоль при удержании клавиши ~ (русская Ё)
+
+#### Увеличение мощности фонарика
+
+Увеличивает дальность и радиус освещения фонарика нажатием клавиши **F**. Повторное нажатие возвращает исходное состояние.
+
+<details>
+  <summary>Превью мода (Может содержать спойлеры!)</summary>
+    <img src="./Content/img/flashlight_preview.gif" alt="gif preview">
+</details>
+
+#### Установка FPS лимита в GUI
+
+<details>
+  <summary>Превью настройки в меню мода</summary>
+    <img src="./Content/img/fps_preview.png" alt="image preview">
+</details>
+
+#### Разблокировка приседания
+
+Разблокирует возможность приседать на клавишу LCtrl (левый контрол).
+
+<details>
+  <summary>Превью приседания (Может содержать спойлеры!)</summary>
+    <img src="./Content/img/sit_preview.gif" alt="gif preview">
+</details>
+
+#### Разблокировка спринта
+
+Разблокирует режим спринта на клавишу Shift.
+
+#### Скроллер time scale
+
+Зажмите левый Shift и прокрутите колесико мыши чтобы изменить time scale.
+
+#### Следующий мод
+
+❓
 
 ### Список патчей
 
-|                                             Патч                                              |             Статус              |
-| :-------------------------------------------------------------------------------------------: | :-----------------------------: |
-|                [Пропуск интро](https://github.com/MrSago/MiSide-Intro-Skipper)                |               ✅                |
-|                                       Пропуск диалогов                                        | **⚠️ МОЖЕТ ВЫЗВАТЬ СОФТЛОК ⚠️** |
-| [Нативное разрешение в настройках](https://github.com/MrSago/MiSide-Native-Resolution-Option) |               ✅                |
-|                                        Следующий патч                                         |               ❓                |
+#### Пропуск интро
 
-Пропуск диалогов включается в GUI (клавиша F1).
+Автоматически пропускает интро и катсцену при старте игры Пропуск диалогов включается в GUI (клавиша F1).
+
+#### Нативное разрешение в настройках
+
+<details>
+  <summary>Опция с нативным разрешением</summary>
+    <img src="./Content/img/native_preview.png" alt="image preview">
+</details>
+
+Добавляет опцию в настройках с нативным разрешением, то есть с маскимальным разрешением монитора и максимальной частотой. Найти опцию можно в списке разрешений с названием "Native Resolution" (см. раздел Preview).
 
 ## Установка мод пака
 
