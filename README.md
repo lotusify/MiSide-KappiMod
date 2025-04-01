@@ -7,17 +7,17 @@
   - [Information about modifications](#information-about-modifications)
     - [Supported mod loaders](#supported-mod-loaders)
     - [Mod list](#mod-list)
-      - [Mod GUI](#mod-gui)
-      - [Console unlocker](#console-unlocker)
-      - [Flashlight increaser](#flashlight-increaser)
-      - [Set FPS limit in GUI](#set-fps-limit-in-gui)
-      - [Sit unlocker](#sit-unlocker)
-      - [Sprint unlocker](#sprint-unlocker)
-      - [Time scale scroller](#time-scale-scroller)
-      - [Next mode](#next-mode)
+      - [**1. Mod GUI**](#1-mod-gui)
+      - [**2. Console unlocker**](#2-console-unlocker)
+      - [**3. Flashlight increaser**](#3-flashlight-increaser)
+      - [**4. Set FPS limit in GUI**](#4-set-fps-limit-in-gui)
+      - [**5. Sit unlocker**](#5-sit-unlocker)
+      - [**6.Sprint unlocker**](#6sprint-unlocker)
+      - [**7. Time scale scroller**](#7-time-scale-scroller)
+      - [**Next mode**](#next-mode)
     - [Patch list](#patch-list)
-      - [Intro skipper](#intro-skipper)
-      - [Native resolution option](#native-resolution-option)
+      - [**1. Intro skipper**](#1-intro-skipper)
+      - [**2. Native resolution option**](#2-native-resolution-option)
   - [Mod pack installation](#mod-pack-installation)
   - [Key bindings](#key-bindings)
   - [For developers](#for-developers)
@@ -25,17 +25,17 @@
   - [Информация о модификациях](#информация-о-модификациях)
     - [Поддерживаемые загрузчики модов](#поддерживаемые-загрузчики-модов)
     - [Список модификаций](#список-модификаций)
-      - [GUI мода](#gui-мода)
-      - [Разблокировка консоли](#разблокировка-консоли)
-      - [Увеличение мощности фонарика](#увеличение-мощности-фонарика)
-      - [Установка FPS лимита в GUI](#установка-fps-лимита-в-gui)
-      - [Разблокировка приседания](#разблокировка-приседания)
-      - [Разблокировка спринта](#разблокировка-спринта)
-      - [Скроллер time scale](#скроллер-time-scale)
-      - [Следующий мод](#следующий-мод)
+      - [**1. GUI мода**](#1-gui-мода)
+      - [**2. Разблокировка консоли**](#2-разблокировка-консоли)
+      - [**3. Увеличение мощности фонарика**](#3-увеличение-мощности-фонарика)
+      - [**4. Установка FPS лимита в GUI**](#4-установка-fps-лимита-в-gui)
+      - [**5. Разблокировка приседания**](#5-разблокировка-приседания)
+      - [**6. Разблокировка спринта**](#6-разблокировка-спринта)
+      - [**7. Скроллер time scale**](#7-скроллер-time-scale)
+      - [**Следующий мод**](#следующий-мод)
     - [Список патчей](#список-патчей)
-      - [Пропуск интро](#пропуск-интро)
-      - [Нативное разрешение в настройках](#нативное-разрешение-в-настройках)
+      - [**1. Пропуск интро**](#1-пропуск-интро)
+      - [**2. Нативное разрешение в настройках**](#2-нативное-разрешение-в-настройках)
   - [Установка мод пака](#установка-мод-пака)
   - [Назначение клавиш](#назначение-клавиш)
 
@@ -52,17 +52,17 @@ Latest version of the mod pack is available [here](https://github.com/MrSago/MiS
 
 ### Mod list
 
-#### Mod GUI
+#### **1. Mod GUI**
 
 Opens by F1 key.
 
 > _Note: the installed settings in the GUI of the mod are saved!_
 
-#### Console unlocker
+#### **2. Console unlocker**
 
 Unlocks in-game console by holding ~ key.
 
-#### Flashlight increaser
+#### **3. Flashlight increaser**
 
 Increases the range and radius of the flashlight by the **F** key. Pressing it again returns the original state.
 
@@ -71,14 +71,14 @@ Increases the range and radius of the flashlight by the **F** key. Pressing it a
     <img src="./Content/img/flashlight_preview.gif" alt="gif preview">
 </details>
 
-#### Set FPS limit in GUI
+#### **4. Set FPS limit in GUI**
 
 <details>
   <summary>FPS limit preview.</summary>
     <img src="./Content/img/fps_preview.png" alt="image preview">
 </details>
 
-#### Sit unlocker
+#### **5. Sit unlocker**
 
 Unlocks the ability to sit down with the LCtrl (left control) key.
 
@@ -87,25 +87,25 @@ Unlocks the ability to sit down with the LCtrl (left control) key.
     <img src="./Content/img/sit_preview.gif" alt="gif preview">
 </details>
 
-#### Sprint unlocker
+#### **6.Sprint unlocker**
 
 Unlocks sprint mode by holding the Shift key.
 
-#### Time scale scroller
+#### **7. Time scale scroller**
 
 Hold Left Shift and scroll mouse wheel for changing time scale.
 
-#### Next mode
+#### **Next mode**
 
 ❓
 
 ### Patch list
 
-#### Intro skipper
+#### **1. Intro skipper**
 
 Automatically skips intro and cutscene when starting the game. Enabled in the GUI (F1 key).
 
-#### Native resolution option
+#### **2. Native resolution option**
 
 <details>
   <summary>Option preview</summary>
@@ -167,17 +167,17 @@ _Soon..._
 
 ### Список модификаций
 
-#### GUI мода
+#### **1. GUI мода**
 
 Открывается по клавише F1.
 
 > _Установленные настройки в GUI мода сохраняются!_
 
-#### Разблокировка консоли
+#### **2. Разблокировка консоли**
 
 Разблокирует внутриигровую консоль при удержании клавиши ~ (русская Ё)
 
-#### Увеличение мощности фонарика
+#### **3. Увеличение мощности фонарика**
 
 Увеличивает дальность и радиус освещения фонарика нажатием клавиши **F**. Повторное нажатие возвращает исходное состояние.
 
@@ -186,14 +186,14 @@ _Soon..._
     <img src="./Content/img/flashlight_preview.gif" alt="gif preview">
 </details>
 
-#### Установка FPS лимита в GUI
+#### **4. Установка FPS лимита в GUI**
 
 <details>
   <summary>Превью настройки в меню мода</summary>
     <img src="./Content/img/fps_preview.png" alt="image preview">
 </details>
 
-#### Разблокировка приседания
+#### **5. Разблокировка приседания**
 
 Разблокирует возможность приседать на клавишу LCtrl (левый контрол).
 
@@ -202,25 +202,25 @@ _Soon..._
     <img src="./Content/img/sit_preview.gif" alt="gif preview">
 </details>
 
-#### Разблокировка спринта
+#### **6. Разблокировка спринта**
 
 Разблокирует режим спринта на клавишу Shift.
 
-#### Скроллер time scale
+#### **7. Скроллер time scale**
 
 Зажмите левый Shift и прокрутите колесико мыши чтобы изменить time scale.
 
-#### Следующий мод
+#### **Следующий мод**
 
 ❓
 
 ### Список патчей
 
-#### Пропуск интро
+#### **1. Пропуск интро**
 
 Автоматически пропускает интро и катсцену при старте игры Пропуск диалогов включается в GUI (клавиша F1).
 
-#### Нативное разрешение в настройках
+#### **2. Нативное разрешение в настройках**
 
 <details>
   <summary>Опция с нативным разрешением</summary>
