@@ -101,7 +101,7 @@ public static class KappiModCore
         if (callerFilePath is not null)
         {
             string callerClassName = Path.GetFileNameWithoutExtension(callerFilePath);
-            log = $"[{callerClassName}] {message?.ToString() ?? {string.Empty}}";
+            log = $"[{callerClassName}] {message?.ToString() ?? string.Empty}";
         }
         else
         {
