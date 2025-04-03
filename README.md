@@ -12,7 +12,7 @@
       - [**3. Flashlight increaser**](#3-flashlight-increaser)
       - [**4. Set FPS limit in GUI**](#4-set-fps-limit-in-gui)
       - [**5. Sit unlocker**](#5-sit-unlocker)
-      - [**6.Sprint unlocker**](#6sprint-unlocker)
+      - [**6. Sprint unlocker**](#6-sprint-unlocker)
       - [**7. Time scale scroller**](#7-time-scale-scroller)
       - [**Next mode**](#next-mode)
     - [Patch list](#patch-list)
@@ -87,7 +87,7 @@ Unlocks the ability to sit down with the LCtrl (left control) key.
     <img src="./Content/img/sit_preview.gif" alt="gif preview">
 </details>
 
-#### **6.Sprint unlocker**
+#### **6. Sprint unlocker**
 
 Unlocks sprint mode by holding the Shift key.
 
